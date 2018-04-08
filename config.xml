@@ -9,7 +9,10 @@
     <author href="https://github.com/DabrowskiMateusz/BAI-EnglishWords" email="slawek@grawerznak.pl">
 	</author>
 		S. Klejdysz
-	<access origin="*" />
+		<gap:plugin name="cordova-plugin-whitelist" source="npm" />
+		<access origin="*" />
+		<allow-navigation href="*" />
+		<allow-intent href="*" />
 	<platform name="android" />
 	<preference name="DisallowOverscroll" value="true" />
 	<plugin name="cordova-plugin-device" spec="~1.1.4" />
