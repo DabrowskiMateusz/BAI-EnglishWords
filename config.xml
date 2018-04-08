@@ -10,7 +10,7 @@
 		S. Klejdysz
 	</author>
 	<platform name="android" />
-	
+	<preference name="DisallowOverscroll" value="true" />
 	<plugin name="cordova-plugin-device" spec="~1.1.4" />
 	<plugin name="cordova-plugin-dialogs" spec="~1.3.1" />
 
