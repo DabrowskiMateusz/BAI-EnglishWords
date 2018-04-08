@@ -19,3 +19,13 @@ function deviceInfo() {
 
 	document.getElementById("deviceDetails").innerHTML = info;	
 }
+
+
+// funkcja zapisująca dane do bazy firebase.
+
+function addNewWord() {
+  firebase.database().ref('wordlists/' + $('#selectlist').val()).push({
+	word: $('#textarea1').val(),
+  });
+}
+

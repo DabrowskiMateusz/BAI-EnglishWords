@@ -12,6 +12,10 @@
 		<link rel="stylesheet" href="css/themes/style.css" />
 		<link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
   
+		<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+		<script src="js/FirebaseInitialize.js"></script>
+		
+  
 	</head>
 	<body onload="init()">
 		
@@ -24,8 +28,16 @@
 					Wybierz swój ulubiony sposób nauki!
 				</div>
 		</div>
+
 		
 		  <div data-role="main" class="ui-content">
+		  
+		<a href="#database">
+			<div id="button"><b>TestBazyDanych </b>
+		  </div>
+		</a>
+		
+		  
 		<a href="#translate">
 			<div id="button"><b>Translator </b>
 		  </div>
@@ -66,6 +78,33 @@
 	</div>
 	
 	</div>
+	
+	
+	<div data-role="page" id="database">
+		<div data-role="header" id="header">
+			<b> Test Bazy danych </b> <br> <br>
+				<div id="robotofont">
+					 Test Bazy danych
+				</div>
+				 <div data-role="main" class="ui-content">
+				<input type="button" onclick="addNewWord()" value="addNewWord">
+				
+	
+				  <select id="selectlist"> 
+					<option>Owoce</option>
+					<option>Zwierzęta</option>
+					<option>Ludzie</option>
+					<option>Świat</option>
+				  </select>
+	
+				
+				<textarea name="textarea1" id="textarea1"></textarea>	
+				
+				</input>
+				</div>
+		</div>
+	</div>
+	
 	
 	<div data-role="page" id="translate">
 		<div data-role="header" id="header">
