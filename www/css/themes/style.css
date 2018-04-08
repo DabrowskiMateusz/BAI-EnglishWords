@@ -10,6 +10,10 @@
     margin-left: -12px;
 }
 
+a{
+	text-decoration: none;
+}
+
 .ui-btn { border: none !important; }
 
 #header{
@@ -21,7 +25,7 @@
 	background:#2446AF;
 }
 
-#roboto{
+#robotofont{
 	font-family: 'Roboto', sans-serif;
 	font-weight: lighter;
 }
@@ -36,7 +40,7 @@
 }
 
 #lineborder{
-	margin-top:40px;
-	height: 2px;
+	margin-top:20px;
+	height: 1px;
 	background:#FFFFFF;
 }
