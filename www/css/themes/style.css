@@ -23,12 +23,17 @@
 }
 
 #button{
+	height: 0px;
 	margin: 0px;
 	background:#2b2e31;
 	font-weight: normal;
-
-	padding: 5% 5% 10% 10%;
+	padding: 5% 5% 5% 10%;
 	text-shadow:0 0 0; 
 	color: white;
 }
 
+#lineborder{
+	margin-top:40px;
+	height: 2px;
+	background:#FFFFFF;
+}
