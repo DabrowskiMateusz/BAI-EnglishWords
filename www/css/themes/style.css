@@ -2,13 +2,14 @@
 	font-family: 'Lato', sans-serif; 
 	height: 100%;
 	background:#2b2e31;
-
+	outline:0;
 }
 
+.ui-btn { border: none !important; }
 
 #header{
 	font-weight: normal;
-
+	border: none !important;
 	padding: 5% 5% 10% 10%;
 	text-shadow:0 0 0; 
 	color: white;
