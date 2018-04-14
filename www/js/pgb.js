@@ -25,8 +25,8 @@ function deviceInfo() {
 
 function addNewWord() {
 
-	$( "#slowopl" ).html("");
-	$( "#slowoen" ).html("");
+		$( ".wordsrow" ).remove();
+		
   firebase.database().ref('wordlists/' + $('#selectlist').val()).push({
 	polish: $('#textarea1').val(),
 	english:  $('#textarea2').val(),
@@ -39,8 +39,9 @@ var wordsOutput = '';	// zmienna stworzona by pozniej przypisac do niej output z
 
 function showWordsList() {
 	
-	$( "#slowopl" ).html("");
-	$( "#slowoen" ).html("");
+	$( ".wordsrow" ).remove();
+	
+
 		
 	var ref = firebase.database().ref();
 
@@ -52,67 +53,33 @@ function showWordsList() {
 	
 	var refWordlists = firebase.database().ref('wordlists');
 
-	/*
-	refWordlists.on("value", function(snapshot) {
-	   console.log(snapshot.val());
-	}, function (error) {
-	   console.log("Error: " + error.code);
-	});
-	*/
 	
-	var refWordlistsList = refWordlists.child('Ludzie');
+	//var refWordlistsList = refWordlists.child('Ludzie');
 
-	/*
-	refWordlistsList.on("value", function(snapshot) {
-	   console.log(snapshot.val());
-	}, function (error) {
-	   console.log("Error: " + error.code);
-	});
-	*/
+
+	//var refWordlistsList = refWordlists.child('Ludzie');
 	
-	var refWordlistsList = refWordlists.child('Ludzie');
-	
-	
-	refWordlistsList.on("child_added", function(snapshot) {
-		wordsOutput = snapshot.val().slowopl;
-	  // console.log(snapshot.val().slowopl);
-		
-	}, function (error) {
-	   console.log("Error: " + error.code);
-	});
-	
-	
-	refWordlists.on('value', function(snap){
-	//console.log(JSON.stringify(snap.val(), null, 4));
-	//document.getElementById("words").innerHTML = "<pre>" + JSON.stringify(snap.val(), null, 4) + "</pre>";
-	})
-	
-	/*
-	refWordlists.child('Ludzie').on('child_added', function(snap){
-	console.log(JSON.stringify(snap.val(), null, 4));
-	document.getElementById("slowopl").innerHTML = "<pre>" + JSON.stringify(snap.val(), null, 4) + "</pre>";
-	})
-	*/
 	
 	refWordlists.child('Ludzie').on('value', function(snap){
 			
-		snap.forEach(function(childSnapshot) {
-			var snapshot = childSnapshot.val();
-		console.log(snapshot.english);
-		console.log(snapshot.polish);
+		snap.forEach(function(childSnapshot2) {
+			var snapshot = snap.val();
+			var childSnapshot = childSnapshot2.val();
+			
+			console.log(childSnapshot2.key);
+
+		console.log(childSnapshot.english);
+		console.log(childSnapshot.polish);
 
 			
-		$( "#slowopl" ).append(snapshot.polish + " - PL <br>");
-		$( "#slowoen" ).append(snapshot.english +  " - EN <br>");
+		$( "#wordstable" ).append("<tr class =\"wordsrow\"> <td>" + childSnapshot.polish + "</td> <td>"
+		+ childSnapshot.english + "</td>  <td> <button value ="+childSnapshot2.key+"> edycja </button> </td> </tr> ");
+		
 		
 		
 		})
 		
-		
-		
 	})
-	
-	
 	
 }
 
