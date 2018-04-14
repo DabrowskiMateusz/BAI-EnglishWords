@@ -24,10 +24,14 @@ function deviceInfo() {
 // funkcja zapisująca dane do bazy firebase.
 
 function addNewWord() {
+
+	$( "#slowopl" ).html("");
+	$( "#slowoen" ).html("");
   firebase.database().ref('wordlists/' + $('#selectlist').val()).push({
 	polish: $('#textarea1').val(),
 	english:  $('#textarea2').val(),
   });
+  showWordsList()
 }
 			
 var wordsOutput = '';	// zmienna stworzona by pozniej przypisac do niej output z bazy
@@ -35,10 +39,13 @@ var wordsOutput = '';	// zmienna stworzona by pozniej przypisac do niej output z
 
 function showWordsList() {
 	
+	$( "#slowopl" ).html("");
+	$( "#slowoen" ).html("");
+		
 	var ref = firebase.database().ref();
 
 	ref.on("value", function(snapshot) {
-	  // console.log(snapshot.val());
+	 // console.log(snapshot.val());
 	}, function (error) {
 	   console.log("Error: " + error.code);
 	});	
@@ -87,14 +94,22 @@ function showWordsList() {
 	})
 	*/
 	
-	refWordlists.child('Ludzie').on('child_added', function(snap){
+	refWordlists.child('Ludzie').on('value', function(snap){
+			
 		snap.forEach(function(childSnapshot) {
-		console.log(childSnapshot.key);
-		document.getElementById("slowopl").innerHTML = childSnapshot.val();
-		document.getElementById("slowoen").innerHTML = childSnapshot.val();
-		console.log(childSnapshot.val());
-	
-		});		
+			var snapshot = childSnapshot.val();
+		console.log(snapshot.english);
+		console.log(snapshot.polish);
+
+			
+		$( "#slowopl" ).append(snapshot.polish + " - PL <br>");
+		$( "#slowoen" ).append(snapshot.english +  " - EN <br>");
+		
+		
+		})
+		
+		
+		
 	})
 	
 	
