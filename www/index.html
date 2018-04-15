@@ -5,7 +5,6 @@
 		<link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 		<link href="https://fonts.googleapis.com/css?family=Roboto:300,700" rel="stylesheet">
 		<script src="js/pgb.js"></script>
-		<script src="cordova.js"></script>
 		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
 		<script src="js/jquery-2.1.4.min.js"></script>
 		<script src="js/jquery.mobile-1.4.5.min.js"></script>
@@ -14,8 +13,14 @@
   
 		<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
 		<script src="js/FirebaseInitialize.js"></script>
-		
-  
+		<script src="js/jquery.flip.min.js"></script>
+		<script async src="js/flashcard.js"></script>
+		<script>
+		$(document).ready(function() { 
+			
+		 }); 
+			
+			</script> 
 	</head>
 	<body onload="init()">
 		
@@ -43,7 +48,7 @@
 		  </div>
 		</a>
 		
-		<a href="#fiszki">
+		<a href="#flashcards">
 			<div id="button">Fiszki
 		  </div>
 		</a>
@@ -133,13 +138,18 @@
 		</div>
 	</div>
 	
-	<div data-role="page" id="fiszki">
+	<div data-role="page" id="flashcards">
 		<div data-role="header" id="header">
-			<b> Fiszki </b> <br> <br>
-				<div id="robotofont">
-					Wygodna nauka Angielskiego!
-				</div>
+			<b> Fiszki </b>
+	</div>
+	<div id="card" onclick="flashcardClick()"> 
+		<div class="front"> 
+			<div id="frontContent" ></div>
+		</div> 
+		<div class="back">
+			<div id="backContent"></div>
 		</div>
+</div>
 	</div>
 	<div data-role="page" id="gaps">
 		<div data-role="header" id="header">
