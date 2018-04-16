@@ -1,3 +1,10 @@
+class DatabasePaths{
+	wordLists = "WordLists";
+	allUsers = "AllUsers";
+
+	
+}
+
 function init() {
 	document.addEventListener("deviceready",onDeviceReady, false);
 }
@@ -36,46 +43,28 @@ function addNewWord() {
 			
 var wordsOutput = '';	// zmienna stworzona by pozniej przypisac do niej output z bazy
 			
-
 function showWordsList() {
 	
 	$( ".wordsrow" ).remove();
-	
-
 		
 	var ref = firebase.database().ref();
 
 	ref.on("value", function(snapshot) {
-	 // console.log(snapshot.val());
 	}, function (error) {
 	   console.log("Error: " + error.code);
 	});	
 	
 	var refWordlists = firebase.database().ref('wordlists');
-
-	
-	//var refWordlistsList = refWordlists.child('Ludzie');
-
-
-	//var refWordlistsList = refWordlists.child('Ludzie');
-	
 	
 	refWordlists.child('Ludzie').on('value', function(snap){
 			
 		snap.forEach(function(childSnapshot2) {
 			var snapshot = snap.val();
 			var childSnapshot = childSnapshot2.val();
-			
-			console.log(childSnapshot2.key);
-
-		console.log(childSnapshot.english);
-		console.log(childSnapshot.polish);
 
 			
 		$( "#wordstable" ).append("<tr class =\"wordsrow\"> <td>" + childSnapshot.polish + "</td> <td>"
 		+ childSnapshot.english + "</td>  <td> <button value ="+childSnapshot2.key+"> edycja </button> </td> </tr> ");
-		
-		
 		
 		})
 		
