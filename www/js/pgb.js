@@ -1,43 +1,6 @@
-var wordLists = "WordLists";
-var allUsers = "AllUsers";
-var separator = "/";
-var people = "Ludzie";
-var fruit = "Owoce";
-var animals = "Zwierzeta";
-var world = "Swiat";
-
-function createPath(rawPath){
-	var path = "";
-	rawPath.forEach(element => {
-		path += element + separator;
-	});
-	return path;
-}
-
-function pushToDb(path, value){
-	firebase.database().ref(path).push(value);
-}
-
-function getFromDb(path){
-	var refWordlists = firebase.database().ref(path);
-	var elements = [];
-	
-	refWordlists.on("value", function(snapshot) {
-
-		snapshot.forEach(element => {
-			var elem = {key: element.key, value: element.val()}
-			elements.push(elem);
-		});
-	  }, function (errorObject) {
-		console.log("The read failed: " + errorObject.code);
-	  });
-	  return elements;
-}
-
 function init() {
 	document.addEventListener("deviceready",onDeviceReady, false);
 }
-
 
 function onDeviceReady() {
 	navigator.notification.beep(2);
@@ -65,29 +28,23 @@ function addNewWord() {
 	
 	var path = createPath([allUsers, wordLists, $('#selectlist').val()]);
 	pushToDb(path, fieldsValues);
-	$( ".wordsrow" ).remove();
+
   	showWordsList()
 }
 			
 function showWordsList() {
+	$(".wordsrow").remove();
 	var path = createPath([allUsers, wordLists, $('#selectlist').val()]);
 	var refWordlists = getFromDb(path);
-	console.log(refWordlists);
-	/*
-	refWordlists.child('Ludzie').on('value', function(snap){
-			
-		snap.forEach(function(childSnapshot2) {
-			var snapshot = snap.val();
-			var childSnapshot = childSnapshot2.val();
-
-			
-		$( "#wordstable" ).append("<tr class =\"wordsrow\"> <td>" + childSnapshot.polish + "</td> <td>"
-		+ childSnapshot.english + "</td>  <td> <button value ="+childSnapshot2.key+"> edycja </button> </td> </tr> ");
-		
-		
-	})
-	*/
 	
+	refWordlists.on("value", function(snapshot) {
+				snapshot.forEach(element => {
+					$( "#wordstable" ).append("<tr class =\"wordsrow\"> <td>" + element.val().polish + "</td> <td>"
+				+ element.val().english + "</td>  <td> <button value ="+element.key+"> edycja </button> </td> </tr> ");
+				});
+			  }, function (errorObject) {
+				console.log("The read failed: " + errorObject.code);
+			  });
 }
 
 
