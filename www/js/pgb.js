@@ -29,18 +29,25 @@ function addNewWord() {
 	var path = createPath([allUsers, wordLists, $('#selectlist').val()]);
 	pushToDb(path, fieldsValues);
 
-  	showWordsList()
+	$('#textarea1').val("");
+	$('#textarea2').val("");
+}
+
+function deleteWord(key){
+	var path = createPath([allUsers, wordLists, $('#selectlistShow').val(), key]);
+	removeFromDb(path);
+	$(".wordsrow").remove();
 }
 			
 function showWordsList() {
 	$(".wordsrow").remove();
-	var path = createPath([allUsers, wordLists, $('#selectlist').val()]);
+	var path = createPath([allUsers, wordLists, $('#selectlistShow').val()]);
 	var refWordlists = getFromDb(path);
 	
 	refWordlists.on("value", function(snapshot) {
 				snapshot.forEach(element => {
 					$( "#wordstable" ).append("<tr class =\"wordsrow\"> <td>" + element.val().polish + "</td> <td>"
-				+ element.val().english + "</td>  <td> <button value ="+element.key+"> edycja </button> </td> </tr> ");
+				+ element.val().english + "</td>  <td> <button onclick=\"deleteWord('"+element.key+"');\"> usuń </button> </td> </tr> ");
 				});
 			  }, function (errorObject) {
 				console.log("The read failed: " + errorObject.code);

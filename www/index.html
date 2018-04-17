@@ -37,13 +37,7 @@
 		</div>
 
 		
-		  <div data-role="main" class="ui-content">
-		  
-		<a href="#database">
-			<div id="button"><b>TestBazyDanych </b>
-		  </div>
-		</a>
-		
+		  <div data-role="main" class="ui-content">		
 		  
 		<a href="#translate">
 			<div id="button"><b>Translator </b>
@@ -85,50 +79,7 @@
 	</div>
 	
 	</div>
-	
-	
-	<div data-role="page" id="database">
-		<div data-role="header" id="header">
-			<b> Test Bazy danych </b> <br> <br>
-				<div id="robotofont">
-					 Test Bazy danych
-				</div>
-				 <div data-role="main" class="ui-content">
-				<input type="button" onclick="addNewWord()" value="addNewWord">
-				
-	
-				  <select id="selectlist"> 
-					<option>Owoce</option>
-					<option>Zwierzęta</option>
-					<option>Ludzie</option>
-					<option>Świat</option>
-				  </select>
-	
-				
-				<textarea name="textarea1" id="textarea1"></textarea>	
-				<textarea name="textarea2" id="textarea2"></textarea>
-				
-				</input>
-				</div>
-				
-				<input type="button" onclick="showWordsList()" value="showWords"> </input>
-				
 
-				<table id="wordstable" >
-				  <tr>
-					<th>Polskie</th>
-					<th>Angielskie</th>
-					<th>Edycja</th>
-				  </tr>
-					
-				</table>	
-	
-  
-  
-				
-				
-		</div>
-	</div>
 	
 	
 	<div data-role="page" id="translate">
@@ -171,10 +122,45 @@
 	</div>
 	<div data-role="page" id="wordlists">
 		<div data-role="header" id="header">
-			<b> Listy słówek </b> <br> <br>
+			<b> Lista słówek </b> <br> <br>
 				<div id="robotofont">
-					Twórz i edytuj listy słówek!
 				</div>
+				 <div data-role="main" class="ui-content">
+					Kategoria:
+				  <select id="selectlist"> 
+					<option>Owoce</option>
+					<option>Zwierzęta</option>
+					<option>Ludzie</option>
+					<option>Świat</option>
+				  </select>
+				Po polsku:
+				<textarea name="textarea1" id="textarea1"></textarea>	
+				Po angielsku:
+				<textarea name="textarea2" id="textarea2"></textarea>
+				<input type="button" onclick="addNewWord()" value="Dodaj słowo">
+
+				</input>
+				</div>
+				<hr/>
+				Kategoria:
+				<select id="selectlistShow"> 
+				<option>Owoce</option>
+				<option>Zwierzęta</option>
+				<option>Ludzie</option>
+				<option>Świat</option>
+				</select>
+
+				<input type="button" onclick="showWordsList()" value="Pokaż słowa"> </input>
+				
+
+				<table id="wordstable" >
+				  <tr>
+					<th>Polskie</th>
+					<th>Angielskie</th>
+					<th>Edycja</th>
+				  </tr>
+					
+				</table>	
 		</div>
 	</div>
 	<div data-role="page" id="settings">

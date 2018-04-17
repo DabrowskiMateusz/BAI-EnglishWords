@@ -31,6 +31,10 @@ function pushToDb(path, value){
 }
 
 function getFromDb(path){
-	var refWordlists = firebase.database().ref(path);
-	return refWordlists;
+	var db = firebase.database().ref(path);
+	return db;
+}
+
+function removeFromDb(path){
+	firebase.database().ref(path).remove();
 }
