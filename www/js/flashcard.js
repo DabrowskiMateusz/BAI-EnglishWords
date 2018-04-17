@@ -7,26 +7,39 @@ $(document).ready(function() {
     loadNextWordPair();
 }); 
 
+var currentPair = [];
+
 function flashcardClick(){
     var flip = $("#card").data("flip-model");
     if(flip.isFlipped){
         $("#card").flip(false);
-        loadNextWordPair();
+        $("#frontContent").html("<div class='flashcardText'>"+ currentPair[1] +"</div>");
+        
     }
     else{
         $("#card").flip(true);
+        loadNextWordPair();
+        $("#backContent").html("<div class='flashcardText'>"+ currentPair[0] +"</div>");
     }
 }
 
 function loadNextWordPair(){
-    var pair = getRandomWordPair();
-    $("#frontContent").html("<div class='flashcardText'>"+ pair[0] +"</div>");
-    $("#backContent").html("<div class='flashcardText'>"+ pair[1] +"</div>");
-    return pair;
+    currentPair = getRandomWordPair();
 }
 
 function getRandomWordPair(){
-    var pairs = [['marchewka', 'carrot'],['mysz', 'mouse'],['koń', 'horse'],['jabłko', 'apple'],['banan', 'banana']];
+    var category = $('#selectlistFlashcards').val();
+    var path = createPath([allUsers, wordLists, category]);
+	var refWordlists = getFromDb(path);
+	var pairs = [];
+	refWordlists.on("value", function(snapshot) {
+				snapshot.forEach(element => {
+                    pairs.push([element.val().polish, element.val().english]);
+				});
+			  }, function (errorObject) {
+				console.log("The read failed: " + errorObject.code);
+			  });
+
     var numberOfWords = pairs.length;
     var wordPairNumber = Math.floor((Math.random() * numberOfWords));
     var selectedPair = pairs[wordPairNumber];
