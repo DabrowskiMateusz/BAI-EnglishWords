@@ -44,3 +44,23 @@ a{
 	height: 1px;
 	background:#FFFFFF;
 }
+
+#frontContent, #backContent{
+	background-image: url('../../img/flashcard.gif');
+	background-repeat: no-repeat;
+	text-align:center;
+	vertical-align: middle;
+	height: 513px;
+	line-height: 240px;
+	width: 313px;
+	display: inline-block;
+	font-size:2em;
+}
+
+#flashcards {
+	background: white;
+}
+
+.flashcardText {
+    margin:auto;
+}

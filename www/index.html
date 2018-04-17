@@ -4,8 +4,7 @@
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
 		<link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 		<link href="https://fonts.googleapis.com/css?family=Roboto:300,700" rel="stylesheet">
-		<script src="js/pgb.js"></script>
-		<script src="cordova.js"></script>
+
 		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
 		<script src="js/jquery-2.1.4.min.js"></script>
 		<script src="js/jquery.mobile-1.4.5.min.js"></script>
@@ -13,9 +12,17 @@
 		<link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
   
 		<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
-		<script src="js/FirebaseInitialize.js"></script>
-		
-  
+		<script src="js/jquery.flip.min.js"></script>
+		<script src="js/flashcard.js"></script>
+		<script src="js/firebase.js"></script>
+		<script src="js/addingWords.js"></script>
+
+		<script>
+		$(document).ready(function() { 
+			
+		 }); 
+			
+			</script> 
 	</head>
 	<body onload="init()">
 		
@@ -30,20 +37,14 @@
 		</div>
 
 		
-		  <div data-role="main" class="ui-content">
-		  
-		<a href="#database">
-			<div id="button"><b>TestBazyDanych </b>
-		  </div>
-		</a>
-		
+		  <div data-role="main" class="ui-content">		
 		  
 		<a href="#translate">
 			<div id="button"><b>Translator </b>
 		  </div>
 		</a>
 		
-		<a href="#fiszki">
+		<a href="#flashcards">
 			<div id="button">Fiszki
 		  </div>
 		</a>
@@ -78,50 +79,7 @@
 	</div>
 	
 	</div>
-	
-	
-	<div data-role="page" id="database">
-		<div data-role="header" id="header">
-			<b> Test Bazy danych </b> <br> <br>
-				<div id="robotofont">
-					 Test Bazy danych
-				</div>
-				 <div data-role="main" class="ui-content">
-				<input type="button" onclick="addNewWord()" value="addNewWord">
-				
-	
-				  <select id="selectlist"> 
-					<option>Owoce</option>
-					<option>Zwierzęta</option>
-					<option>Ludzie</option>
-					<option>Świat</option>
-				  </select>
-	
-				
-				<textarea name="textarea1" id="textarea1"></textarea>	
-				<textarea name="textarea2" id="textarea2"></textarea>
-				
-				</input>
-				</div>
-				
-				<input type="button" onclick="showWordsList()" value="showWords"> </input>
-				
 
-				<table id="wordstable" >
-				  <tr>
-					<th>Polskie</th>
-					<th>Angielskie</th>
-					<th>Edycja</th>
-				  </tr>
-					
-				</table>	
-	
-  
-  
-				
-				
-		</div>
-	</div>
 	
 	
 	<div data-role="page" id="translate">
@@ -133,13 +91,18 @@
 		</div>
 	</div>
 	
-	<div data-role="page" id="fiszki">
+	<div data-role="page" id="flashcards">
 		<div data-role="header" id="header">
-			<b> Fiszki </b> <br> <br>
-				<div id="robotofont">
-					Wygodna nauka Angielskiego!
-				</div>
+			<b> Fiszki </b>
+	</div>
+	<div id="card" onclick="flashcardClick()"> 
+		<div class="front"> 
+			<div id="frontContent" ></div>
+		</div> 
+		<div class="back">
+			<div id="backContent"></div>
 		</div>
+</div>
 	</div>
 	<div data-role="page" id="gaps">
 		<div data-role="header" id="header">
@@ -159,10 +122,47 @@
 	</div>
 	<div data-role="page" id="wordlists">
 		<div data-role="header" id="header">
-			<b> Listy słówek </b> <br> <br>
+			<b> Lista słówek </b> <br> <br>
 				<div id="robotofont">
-					Twórz i edytuj listy słówek!
 				</div>
+				 <div data-role="main" class="ui-content">
+					Kategoria:
+				  <select id="selectlist"> 
+					<option>Owoce</option>
+					<option>Zwierzęta</option>
+					<option>Ludzie</option>
+					<option>Świat</option>
+				  </select>
+				Po polsku:
+				<textarea name="textarea1" id="textarea1"></textarea>	
+				Po angielsku:
+				<textarea name="textarea2" id="textarea2"></textarea>
+				<input type="button" onclick="addNewWord()" value="Dodaj słowo">
+				</input>
+				<div id="wordAddedStatus"></span>
+				</div>
+				<br/>
+				<hr/>
+				<br/>
+				Kategoria:
+				<select id="selectlistShow"> 
+				<option>Owoce</option>
+				<option>Zwierzęta</option>
+				<option>Ludzie</option>
+				<option>Świat</option>
+				</select>
+
+				<input type="button" onclick="showWordsList()" value="Pokaż słowa"> </input>
+				
+
+				<table id="wordstable" >
+				  <tr>
+					<th>Polskie</th>
+					<th>Angielskie</th>
+					<th>Edycja</th>
+				  </tr>
+					
+				</table>	
 		</div>
 	</div>
 	<div data-role="page" id="settings">
