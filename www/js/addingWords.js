@@ -31,6 +31,8 @@ function addNewWord() {
 
 	$('#textarea1').val("");
 	$('#textarea2').val("");
+
+	$('#wordAddedStatus').text("Dodano nowe słowo!")
 }
 
 function deleteWord(key){

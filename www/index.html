@@ -15,7 +15,7 @@
 		<script src="js/jquery.flip.min.js"></script>
 		<script src="js/flashcard.js"></script>
 		<script src="js/firebase.js"></script>
-		<script src="js/pgb.js"></script>
+		<script src="js/addingWords.js"></script>
 
 		<script>
 		$(document).ready(function() { 
@@ -138,10 +138,12 @@
 				Po angielsku:
 				<textarea name="textarea2" id="textarea2"></textarea>
 				<input type="button" onclick="addNewWord()" value="Dodaj słowo">
-
 				</input>
+				<div id="wordAddedStatus"></span>
 				</div>
+				<br/>
 				<hr/>
+				<br/>
 				Kategoria:
 				<select id="selectlistShow"> 
 				<option>Owoce</option>
