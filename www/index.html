@@ -15,10 +15,7 @@
 		<script src="js/jquery.flip.min.js"></script>
 		<script src="js/firebase.js"></script>
 		<script src="js/addingWords.js"></script>
-		<link rel="stylesheet" href="css/bootstrap.min.css"/>
-		<script src="js/popper.js"></script>
 		<script async src="js/flashcard.js"></script>
-		<script src="js/bootstrap.min.js"></script>
 
 	</head>
 	<body onload="init()">
@@ -74,11 +71,8 @@
 		</a>
 	
 	</div>
-	
 	</div>
 
-	
-	
 	<div data-role="page" id="translate">
 		<div data-role="header" id="header">
 			<b> Translator </b> <br> <br>
@@ -87,27 +81,7 @@
 				</div>
 		</div>
 	</div>
-	
-	<div data-role="page" id="flashcards">
-		<div data-role="header" id="header">
-			<b> Fiszki </b>
-	</div>
-	Kategoria:
-	<select id="selectlistFlashcards"> 
-	<option>Owoce</option>
-	<option>Zwierzęta</option>
-	<option>Ludzie</option>
-	<option>Świat</option>
-	</select>
-	<div id="card" onclick="flashcardClick()"> 
-		<div class="front"> 
-			<div id="frontContent" ></div>
-		</div> 
-		<div class="back">
-			<div id="backContent"></div>
-		</div>
-</div>
-	</div>
+
 	<div data-role="page" id="gaps">
 		<div data-role="header" id="header">
 			<b> Uzupełnij zdania </b> <br> <br>
@@ -506,31 +480,50 @@
 				</div>
 		</div>
 	</div>
-	<div data-role="page" id="wordlists">
-		<div data-role="header" id="header">
-			<b> Lista słówek </b> <br> <br>
-				<div id="robotofont">
-				</div>
+	<div data-role="page" class="normal_page" id="flashcards">
+			<div  class="second_header">
+				Fiszki
+		</div>
+		<h3>Kategoria:</h3>
+		<select id="selectlistFlashcards"> 
+		<option>Owoce</option>
+		<option>Zwierzęta</option>
+		<option>Ludzie</option>
+		<option>Świat</option>
+		</select>
+		<div id="card" onclick="flashcardClick()"> 
+			<div class="front"> 
+				<div id="frontContent" ></div>
+			</div> 
+			<div class="back">
+				<div id="backContent"></div>
+			</div>
+	</div>
+		</div>
+	<div data-role="page" class="normal_page" id="wordlists">
+		<div class="second_header">
+			Lista słówek 
+
+		</div>
 				 <div data-role="main" class="ui-content">
-					Kategoria:
+						<h3>Kategoria:</h3>
 				  <select id="selectlist"> 
 					<option>Owoce</option>
 					<option>Zwierzęta</option>
 					<option>Ludzie</option>
 					<option>Świat</option>
 				  </select>
-				Po polsku:
+				<h3>Po polsku:</h3>
 				<textarea name="textarea1" id="textarea1"></textarea>	
-				Po angielsku:
+				<h3>Po angielsku:</h3>
 				<textarea name="textarea2" id="textarea2"></textarea>
-				<input type="button" onclick="addNewWord()" value="Dodaj słowo">
-				</input>
-				<div id="wordAddedStatus"></span>
+				<a href="#" onclick="addNewWord()" class="ui-btn ui-btn-inline">Dodaj słowo</a>
+ 				<div id="wordAddedStatus"></span>
 				</div>
 				<br/>
 				<hr/>
 				<br/>
-				Kategoria:
+				<h3>Kategoria:</h3>
 				<select id="selectlistShow"> 
 				<option>Owoce</option>
 				<option>Zwierzęta</option>
@@ -541,15 +534,14 @@
 				<input type="button" onclick="showWordsList()" value="Pokaż słowa"> </input>
 				
 
-				<table id="wordstable" >
+				<table id="wordstable"  class="ui-responsive table-stroke">
 				  <tr>
 					<th>Polskie</th>
 					<th>Angielskie</th>
-					<th>Edycja</th>
+					<th>Usunięcie</th>
 				  </tr>
 					
 				</table>	
-		</div>
 	</div>
 	<div data-role="page" id="settings">
 		<div data-role="header" id="header">

@@ -38,7 +38,7 @@ function addNewWord() {
 function deleteWord(key){
 	var path = createPath([allUsers, wordLists, $('#selectlistShow').val(), key]);
 	removeFromDb(path);
-	$(".wordsrow").remove();
+	showWordsList();
 }
 			
 function showWordsList() {

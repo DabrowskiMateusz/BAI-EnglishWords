@@ -1,3 +1,5 @@
+@font-face { font-family: Precious; src: url('../Precious.ttf'); } 
+
 .ui-page { 
 	font-family: 'Lato', sans-serif; 
 	height: 100%;
@@ -23,6 +25,16 @@ a{
 	text-shadow:0 0 0; 
 	color: white;
 	background:#2446AF;
+}
+
+.second_header{
+	border: none !important;
+	padding: 1% 1% 1% 1%;
+	text-shadow:0 0 0; 
+	text-align: center;
+	color: black;
+	background:#b9f3a8;
+	font-size: 2em;
 }
 
 #robotofont{
@@ -57,8 +69,8 @@ a{
 	font-size:2em;
 }
 
-#flashcards {
-	background: white;
+.normal_page {
+	background: rgb(255, 255, 241);
 }
 
 .flashcardText {
