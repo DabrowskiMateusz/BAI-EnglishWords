@@ -45,6 +45,19 @@ function loginFirebase() {
 			}  
 		});
 		
+		$('#logout').click(function() {
+
+			firebase.auth().signOut().then(function() {
+			  // Sign-out successful.
+			}, function(error) {
+			  // An error happened.
+			});
+		
+		});
+		
+		
+		
+		
 }  
 
 function loginFirebaseStatus() {
@@ -61,14 +74,17 @@ function loginFirebaseStatus() {
 			console.log(displayName);
 				console.log(email);
 				console.log(user.emailVerified);
-				$( "#loggedas" ).append(email);
+				$( "#loggedas" ).html(email);
 				
 		  } else {
-			$( "#loggedas" ).append('user logged out');
+			$( "#loggedas" ).html('user logged out');
 		  }
 		});
 		
 }  
+
+
+
 
 function init() {
 	loginFirebase();
