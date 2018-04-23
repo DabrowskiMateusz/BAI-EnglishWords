@@ -61,7 +61,7 @@ function loginFirebaseStatus() {
 			console.log(displayName);
 				console.log(email);
 				console.log(user.emailVerified);
-				$( "#loggedas" ).append('zalogowany');
+				$( "#loggedas" ).append(displayName);
 				
 		  } else {
 			console.log('user signed out');
