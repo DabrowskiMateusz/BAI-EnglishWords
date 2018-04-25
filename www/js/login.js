@@ -141,7 +141,6 @@ function signOut() {
     });
 }
   
-  
 
 
 function init() {
