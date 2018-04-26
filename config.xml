@@ -21,7 +21,9 @@
 	<plugin name="cordova-universal-links-plugin" />
 	<plugin name="cordova-plugin-browsertab" />
 	<plugin name="cordova-plugin-inappbrowser" />
-	<plugin name="cordova-plugin-customurlscheme" />
+	<plugin name="cordova-plugin-customurlscheme" >
+	 <paramname="URL_SCHEME" value="sndzis" />
+	 </plugin>
 	<plugin name="cordova-plugin-dialogs" spec="~1.3.1" />
 	
 	<universal-links>
