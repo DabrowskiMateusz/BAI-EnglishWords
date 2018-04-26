@@ -15,9 +15,15 @@
 		<allow-navigation href="*" />
 		<allow-intent href="*" />
 		
-		<plugin name="cordova-plugin-googleplus" source="npm">
-		  <variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.244487661018-8rn0cmocvl4p549fsfm3ag6umrgfrfd8" />
+		
+		<plugin spec="https://github.com/EddyVerbruggen/cordova-plugin-googleplus.git" source="git">
+		<variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.244487661018-8rn0cmocvl4p549fsfm3ag6umrgfrfd8" />
 		  <variable name="WEB_APPLICATION_CLIENT_ID" value="244487661018-8rn0cmocvl4p549fsfm3ag6umrgfrfd8.apps.googleusercontent.com" />
+		<plugin>
+
+
+	
+		  
 		</plugin>
 
 	<platform name="android" />
