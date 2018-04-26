@@ -9,6 +9,7 @@
 	</author>
 	<engine name="android" />
 		S. Klejdysz
+		<plugin name="cordova-plugin-whitelist"/>
 		<access origin="*" />
 		<allow-navigation href="*" />
 		<allow-intent href="*" />
