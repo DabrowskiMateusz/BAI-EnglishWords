@@ -21,9 +21,7 @@
 	<plugin name="cordova-universal-links-plugin" />
 	<plugin name="cordova-plugin-browsertab" />
 	<plugin name="cordova-plugin-inappbrowser" />
-	<plugin name="cordova-plugin-customurlscheme" version="4.1.5">
-    <paramname="URL_SCHEME" value="bloemetje" />
-  </plugin>
+
 	
 	<universal-links>
     <host name="h6x6m.app.goo.gl" scheme="https" />
