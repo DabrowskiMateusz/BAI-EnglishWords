@@ -8,6 +8,7 @@
     <description>Aplikacja do nauki języka angielskiego</description>
     <author href="https://github.com/DabrowskiMateusz/BAI-EnglishWords" email="slawek@grawerznak.pl">
 	</author>
+	<engine name="android" spec="^7.0.0" />
 		S. Klejdysz
 		<gap:plugin name="cordova-plugin-whitelist" source="npm" />
 		<access origin="*" />
