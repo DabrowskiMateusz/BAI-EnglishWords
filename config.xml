@@ -4,6 +4,7 @@
 		id          = "Slowkonadzis"
         version     = "1.0.0" >
     <name>Słówko na dziś</name>
+	<preference name="phonegap-version" value="cli-8.0.0" />
     <description>Aplikacja do nauki języka angielskiego</description>
     <author href="https://github.com/DabrowskiMateusz/BAI-EnglishWords" email="slawek@grawerznak.pl">
 	</author>
