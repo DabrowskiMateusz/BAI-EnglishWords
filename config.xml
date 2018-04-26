@@ -15,7 +15,7 @@
 		
 	<platform name="android" spec="^7.0.0"/>
 
-		<plugin name="cordova-plugin-googleplus" source="npm" spec="~11.0.4" >
+		<plugin name="cordova-plugin-googleplus" source="npm" spec="~5.2.0" >
 		<param name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.244487661018-8rn0cmocvl4p549fsfm3ag6umrgfrfd8" />
 		<param name="WEB_APPLICATION_CLIENT_ID" value="244487661018-8rn0cmocvl4p549fsfm3ag6umrgfrfd8.apps.googleusercontent.com" />
 		
