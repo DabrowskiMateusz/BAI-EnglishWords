@@ -3,7 +3,7 @@
         xmlns:gap   = "http://phonegap.com/ns/1.0"
 		id          = "Slowkonadzis"
         version     = "1.0.0" >
-
+	<framework src="androidd.gradle" custom="true" type="gradleReference"/>
     <name>Słówko na dziś</name>
     <description>Aplikacja do nauki języka angielskiego</description>
     <author href="https://github.com/DabrowskiMateusz/BAI-EnglishWords" email="slawek@grawerznak.pl">
