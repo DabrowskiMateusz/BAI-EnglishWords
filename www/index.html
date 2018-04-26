@@ -16,7 +16,8 @@
 		<script src="js/firebase.js"></script>
 		<script src="js/addingWords.js"></script>
 		<script async src="js/flashcard.js"></script>
-
+		<script src="js/chooseWord.js"></script>
+		
 	</head>
 	<body onload="init()">
 		
@@ -40,6 +41,10 @@
 		
 		<a href="#flashcards">
 			<div id="button">Fiszki
+		  </div>
+		</a>
+		<a href="#chooseTranslation">
+			<div id="button">Wybierz znaczenie
 		  </div>
 		</a>
 		
@@ -102,6 +107,33 @@
 			<h2><a href="#presentPerfect">Present Perfect</a></h2>
 		</div>
 		
+	</div>
+	<div data-role="page" class="normal_page" id="chooseTranslation">
+		<div  class="second_header">
+			Wybierz znaczenie
+	</div>
+	<h3>Kategoria:</h3>
+	<select id="selectlistChooseWord"> 
+	<option>Owoce</option>
+	<option>Zwierzęta</option>
+	<option>Ludzie</option>
+	<option>Świat</option>
+	</select>
+	<h2 id="chooseWord">Pieseł</h2>
+	<form>
+        <fieldset data-role="controlgroup">
+        <input name="radio-choice-v-2" id="radio-choice-v-2a" checked="checked" type="radio">
+        <label id="first-option" for="radio-choice-v-2a">One</label>
+        <input name="radio-choice-v-2" id="radio-choice-v-2b" type="radio">
+        <label id="second-option" for="radio-choice-v-2b">Two</label>
+        <input name="radio-choice-v-2" id="radio-choice-v-2c" type="radio">
+		<label id="third-option" for="radio-choice-v-2c">Three</label>
+		<input name="radio-choice-v-2" id="radio-choice-v-2d" type="radio">
+        <label id="forth-option" for="radio-choice-v-2d">Four</label>
+    	</fieldset>
+	</form>
+	<input type="button" onclick="nextWord()" value="Następne słowo"></input>
+	<h2 id="chooseWordResult"></h2>
 	</div>
 	<div data-role="page" class="normal_page" id="flashcards">
 		<div  class="second_header">
@@ -515,7 +547,6 @@
 				</select>
 				
 				<input type="button" onclick="showWordsList()" value="Pokaż słowa"> </input>
-				
 
 				<table id="wordstable"  class="ui-responsive table-stroke">
 				  <tr>
