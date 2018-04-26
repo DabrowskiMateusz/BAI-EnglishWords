@@ -3,7 +3,6 @@
         xmlns:gap   = "http://phonegap.com/ns/1.0"
 		id          = "Slowkonadzis"
         version     = "1.0.0" >
-	<framework src="androidd.gradle" custom="true" type="gradleReference"/>
     <name>Słówko na dziś</name>
     <description>Aplikacja do nauki języka angielskiego</description>
     <author href="https://github.com/DabrowskiMateusz/BAI-EnglishWords" email="slawek@grawerznak.pl">
@@ -14,12 +13,12 @@
 		<allow-navigation href="*" />
 		<allow-intent href="*" />
 		
-	<platform name="android" />
+	<platform name="android" spec="^7.0.0"/>
 
-		<plugin name="cordova-plugin-googleplus" source="npm">
-		<variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.244487661018-8rn0cmocvl4p549fsfm3ag6umrgfrfd8" />
-		<variable name="WEB_APPLICATION_CLIENT_ID" value="244487661018-8rn0cmocvl4p549fsfm3ag6umrgfrfd8.apps.googleusercontent.com" />
-		</plugin>
+		<gap:plugin name="cordova-plugin-googleplus" source="npm">
+		<param name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.244487661018-8rn0cmocvl4p549fsfm3ag6umrgfrfd8" />
+		</gap:plugin>
+		<param name="WEB_APPLICATION_CLIENT_ID" value="244487661018-8rn0cmocvl4p549fsfm3ag6umrgfrfd8.apps.googleusercontent.com" />
 		
 	<preference name="DisallowOverscroll" value="true" />
 	<plugin name="cordova-plugin-device" spec="~1.1.4" />
