@@ -19,8 +19,8 @@
 		<script async src="js/flashcard.js"></script>
 		<script src="https://apis.google.com/js/platform.js" async defer></script>
 		<meta name="google-signin-client_id" content="244487661018-8rn0cmocvl4p549fsfm3ag6umrgfrfd8.apps.googleusercontent.com">
-			<meta name="google-signin-cookiepolicy" content="single_host_origin">
-			<meta name="google-signin-scope" content="profile email">
+		<meta name="google-signin-cookiepolicy" content="single_host_origin">
+		<meta name="google-signin-scope" content="profile email">
 			
 		
 
@@ -36,6 +36,8 @@
 				</div>	
 				<div id="robotofont">
 					Zalogowany jako <p id="loggedas"> </p>
+					<p id="feedback">not logged in</p>
+					
 				</div>	
 		</div>
 		<div data-role="main" class="ui-content" >		
@@ -43,8 +45,15 @@
 				<input type="text" id="userEmail" placeholder="Email"> 
 				<input type="password" id="userPass" placeholder="Password"> 
 				<button type="button" id="register">Register</button> 
-				<button type="button" id="login">login</button> 
-				<button type="button" class="g-signin2" data-onsuccess="onSignIn" id="logingoogle">login google</button> 
+				<button type="button" id="login">login</button>
+				
+				<br/><br/>
+				<button onclick="loginGoogle()">Login with Google+</button>
+				<br/><br/>
+				<button onclick="trySilentLogin()">Try silent login with Google+</button>
+				<br/><br/>
+				
+				
 				<button type="button" id="logout" onclick="signOut();">logout</button> 
 							
 			

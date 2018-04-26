@@ -13,6 +13,12 @@
 		<access origin="*" />
 		<allow-navigation href="*" />
 		<allow-intent href="*" />
+		
+		<plugin name="cordova-plugin-googleplus" source="npm">
+		  <variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.244487661018-8rn0cmocvl4p549fsfm3ag6umrgfrfd8" />
+		  <variable name="WEB_APPLICATION_CLIENT_ID" value="244487661018-8rn0cmocvl4p549fsfm3ag6umrgfrfd8.apps.googleusercontent.com" />
+		</plugin>
+
 	<platform name="android" />
 	<preference name="DisallowOverscroll" value="true" />
 	<plugin name="cordova-plugin-device" spec="~1.1.4" />
