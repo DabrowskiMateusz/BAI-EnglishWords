@@ -50,11 +50,9 @@ function loginFirebase() {
 		});
 		
 		$('#logingoogle').click(function() {
-	
-		provider.addScope('https://www.googleapis.com/auth/plus.login');
-
-		firebase.auth().signInWithRedirect(provider);
-
+			
+			firebase.auth().signInWithRedirect(provider);
+			
 	});
 	
 	
@@ -111,11 +109,31 @@ function loginFirebaseStatus() {
 		  }
 		});
 		
-		firebase.auth().getRedirectResult().then(function(authData) {
-			console.log(authData);
-		}).catch(function(error) {
-			console.log(error);
-		});
+		
+			firebase.auth().getRedirectResult().then(function(result) {
+			  if (result.credential) {
+				// This gives you a Google Access Token. You can use it to access the Google API.
+				var token = result.credential.accessToken;
+				console.log(token);
+				// ...
+			  }
+			  // The signed-in user info.
+			  var user = result.user;
+			  console.log(user);
+			}).catch(function(error) {
+			  // Handle Errors here.
+			  var errorCode = error.code;
+			  var errorMessage = error.message;
+			  // The email of the user's account used.
+			  var email = error.email;
+			  console.log(email);
+			   console.log(errorCode);
+			  // The firebase.auth.AuthCredential type that was used.
+			  var credential = error.credential;
+			  // ...
+			});
+			
+			
 }  
 
 
@@ -126,8 +144,6 @@ function login() {
                  'offline': false
         },
         function (obj) {
-            document.querySelector("#image").src = obj.imageUrl;
-            document.querySelector("#image").style.visibility = 'visible';
             document.querySelector("#feedback").innerHTML = "Hi, " + obj.displayName + ", " + obj.email;
             if (!firebase.auth().currentUser) {
                 document.querySelector("#feedback").innerHTML ='signing firebase';
@@ -159,8 +175,6 @@ window.plugins.googleplus.trySilentLogin(
 			 'offline': false
 	},
 	function (obj) {
-	  document.querySelector("#image").src = obj.imageUrl;
-	  document.querySelector("#image").style.visibility = 'visible';
 	  document.querySelector("#feedback").innerHTML = "Silent hi, " + obj.displayName + ", " + obj.email;
 	},
 	function (msg) {
@@ -210,10 +224,6 @@ function handleOpenURL (url) {
 }
 
 
-
-
-  
-  
 
 function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
