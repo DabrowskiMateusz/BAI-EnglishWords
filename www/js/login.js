@@ -106,10 +106,6 @@ function loginFirebaseStatus() {
 }  
 
 
-document.addEventListener("deviceready", function() {
-alert(window.plugins);
-}, false);
-
 function isAvailable() {
     window.plugins.googleplus.isAvailable(function(avail) {alert(avail)});
   }
