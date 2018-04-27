@@ -5,21 +5,50 @@ $(document).ready(function() {
 
 var currentValues;
 
-function checkResult(){
-
-}
-
 function nextWord(){
     loadNextWordToChoose();
 }
 
 function loadNextWordToChoose(){
-    currentValues = getNextSelection();
-    $("#chooseWord").val(currentValues[0]);
-    $("#first-option").val(currentValues[1]);
-    $("#second-option").val(currentValues[2]);
-    $("#third-option").val(currentValues[3]);
-    $("#forth-option").val(currentValues[4]);
+
+    if($("#nextWordButton").text()=='Sprawdź'){
+        var selected =  $("#selectWordCheckList :radio:checked").prop("id");
+        var labelVal = $("label[for='"+ selected +"']").html();
+
+        if(labelVal == currentValues[0][1]){
+            $("#chooseWordResult").html("Dobra odpowiedź!");
+        }
+        else{
+            $("#chooseWordResult").html("Zła odpowiedź, prawidłowe tłumaczenie to: " + currentValues[0][1]);
+        }
+
+        $("input[type='radio']").attr("checked",false).checkboxradio("refresh");
+        $("#nextWordButton").text('Następne');
+    }
+    else {
+        currentValues = getNextSelection();
+        $("#chooseWord").html(currentValues[0][0]);
+    
+        var options = [];
+        options.push($("#first-option"));
+        options.push($("#second-option"));
+        options.push($("#third-option"));
+        options.push($("#forth-option"));
+    
+        var goodAnswer = Math.floor((Math.random() * 4));
+    
+        options[goodAnswer].html(currentValues[0][1]);
+        options.splice(goodAnswer, 1);
+    
+        var index = 1;
+        options.forEach(element => {
+            element.html(currentValues[index]);
+            index++;
+        });
+    
+        $("#nextWordButton").text('Sprawdź');
+        $("#chooseWordResult").html("");
+    }
 }
 
 function getNextSelection(){
@@ -37,7 +66,8 @@ function getNextSelection(){
 
     var numberOfWords = pairs.length;
     var wordPairNumber = Math.floor((Math.random() * numberOfWords));
-    var selectedValues = pairs[wordPairNumber];
+    var selectedValues = [];
+    selectedValues.push(pairs[wordPairNumber]);
     pairs.splice(wordPairNumber, 1);
     selectedValues.push(getNextRandomIncorrect(pairs));
     selectedValues.push(getNextRandomIncorrect(pairs));

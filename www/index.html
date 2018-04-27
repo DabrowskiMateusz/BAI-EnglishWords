@@ -119,20 +119,20 @@
 	<option>Ludzie</option>
 	<option>Świat</option>
 	</select>
-	<h2 id="chooseWord">Pieseł</h2>
+	<h2 id="chooseWord"></h2>
 	<form>
-        <fieldset data-role="controlgroup">
-        <input name="radio-choice-v-2" id="radio-choice-v-2a" checked="checked" type="radio">
-        <label id="first-option" for="radio-choice-v-2a">One</label>
-        <input name="radio-choice-v-2" id="radio-choice-v-2b" type="radio">
-        <label id="second-option" for="radio-choice-v-2b">Two</label>
-        <input name="radio-choice-v-2" id="radio-choice-v-2c" type="radio">
-		<label id="third-option" for="radio-choice-v-2c">Three</label>
-		<input name="radio-choice-v-2" id="radio-choice-v-2d" type="radio">
-        <label id="forth-option" for="radio-choice-v-2d">Four</label>
+        <fieldset data-role="controlgroup" id="selectWordCheckList">
+        <input type="radio" name="radio-choice-v-2" id="radio-choice-v-2a" checked="checked" type="radio">
+        <label id="first-option" for="radio-choice-v-2a"></label>
+        <input type="radio" name="radio-choice-v-2" id="radio-choice-v-2b" type="radio">
+        <label id="second-option" for="radio-choice-v-2b"></label>
+        <input type="radio" name="radio-choice-v-2" id="radio-choice-v-2c" type="radio">
+		<label id="third-option" for="radio-choice-v-2c"></label>
+		<input type="radio" name="radio-choice-v-2" id="radio-choice-v-2d" type="radio">
+        <label id="forth-option" for="radio-choice-v-2d"></label>
     	</fieldset>
 	</form>
-	<input type="button" onclick="nextWord()" value="Następne słowo"></input>
+	<a href="#" onclick="nextWord()" data-role="button" id="nextWordButton">Następne</a> 
 	<h2 id="chooseWordResult"></h2>
 	</div>
 	<div data-role="page" class="normal_page" id="flashcards">
