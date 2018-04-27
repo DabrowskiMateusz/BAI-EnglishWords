@@ -105,28 +105,16 @@ function loginFirebaseStatus() {
 		
 }  
 
-document.addEventListener('deviceready', deviceReady, false);
-
-function deviceReady() {
-    //I get called when everything's ready for the plugin to be called!
-    console.log('Device is ready!');
-    window.plugins.googleplus.trySilentLogin(
-			{
-			  'scopes': '... ', // optional - space-separated list of scopes, If not included or empty, defaults to `profile` and `email`.
-			  'webClientId': 'client id of the web app/server side', // optional - clientId of your Web application from Credentials settings of your project - On Android, this MUST be included to get an idToken. On iOS, it is not required.
-			  'offline': true, // Optional, but requires the webClientId - if set to true the plugin will also return a serverAuthCode, which can be used to grant offline access to a non-Google server
-			},
-			function (obj) {
-			  alert(JSON.stringify(obj)); // do something useful instead of alerting
-			},
-			function (msg) {
-			  alert('error: ' + msg);
-			}
-		);
-}
 
 
-/*
+
+document.addEventListener("deviceready", onDeviceReady, false);
+
+function onDeviceReady() {
+    // Now safe to use device APIs
+
+		console.log('device ready');
+
 
 function isAvailable() {
     window.plugins.googleplus.isAvailable(function(avail) {alert(avail)});
@@ -187,7 +175,7 @@ function isAvailable() {
   }
 
 
-  */
+  }
   
 
 function signOut() {
