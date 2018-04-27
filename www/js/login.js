@@ -58,6 +58,7 @@ function loginFirebase() {
 		  var token = result.credential.accessToken;
 		  // The signed-in user info.
 		  var user = result.user;
+		  console.log('user object:' + user);
 		  // ...
 		}).catch(function(error) {
 		  // Handle Errors here.
@@ -131,8 +132,6 @@ function login() {
                  'offline': false
         },
         function (obj) {
-            document.querySelector("#image").src = obj.imageUrl;
-            document.querySelector("#image").style.visibility = 'visible';
             document.querySelector("#feedback").innerHTML = "Hi, " + obj.displayName + ", " + obj.email;
             if (!firebase.auth().currentUser) {
                 document.querySelector("#feedback").innerHTML ='signing firebase';
@@ -164,8 +163,6 @@ window.plugins.googleplus.trySilentLogin(
 			 'offline': false
 	},
 	function (obj) {
-	  document.querySelector("#image").src = obj.imageUrl;
-	  document.querySelector("#image").style.visibility = 'visible';
 	  document.querySelector("#feedback").innerHTML = "Silent hi, " + obj.displayName + ", " + obj.email;
 	},
 	function (msg) {
@@ -177,7 +174,6 @@ window.plugins.googleplus.trySilentLogin(
 function logout() {
 window.plugins.googleplus.logout(
 	function (msg) {
-	  document.querySelector("#image").style.visibility = 'hidden';
 	  document.querySelector("#feedback").innerHTML = msg;
 	  if(firebase.auth().currentUser){
 		document.querySelector("#feedback").innerHTML ='signing out from firebase';
