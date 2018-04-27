@@ -203,7 +203,8 @@ window.plugins.googleplus.logout(
   
 function disconnect() {
 window.plugins.googleplus.disconnect(
-	function (msg) 
+	function (msg) {
+	  document.querySelector("#feedback").innerHTML = msg;
 	  if(firebase.auth().currentUser){
 		document.querySelector("#feedback").innerHTML ='signing out from firebase';
 		firebase.auth().signOut();
