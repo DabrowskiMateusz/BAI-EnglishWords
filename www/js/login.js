@@ -66,6 +66,24 @@ function loginFirebase() {
 		console.log(errorCode + ' - ' + errorMessage)
 		});
 	});
+	
+	$('#logingoogle2').click(function() {
+				window.plugins.googleplus.login(
+				{
+				  'scopes': '... ', // optional, space-separated list of scopes, If not included or empty, defaults to `profile` and `email`.
+				  'webClientId': '244487661018-8rn0cmocvl4p549fsfm3ag6umrgfrfd8.apps.googleusercontent.com', // optional clientId of your Web application from Credentials settings of your project - On Android, this MUST be included to get an idToken. On iOS, it is not required.
+				  'offline': false, // optional, but requires the webClientId - if set to true the plugin will also return a serverAuthCode, which can be used to grant offline access to a non-Google server
+				},
+				function (obj) {
+				  alert(JSON.stringify(obj)); // do something useful instead of alerting
+				},
+				function (msg) {
+				  alert('error: ' + msg);
+				}
+			);
+	});
+	
+	
 
 		
 		
