@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
     <widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
-		id          = "englishwords-10e45"
+		id          = "slowkonadzis"
         version     = "1.0.0" >
     <name>Słówko na dziś</name>
     <description>Aplikacja do nauki języka angielskiego</description>
