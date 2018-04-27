@@ -48,8 +48,26 @@
 				<button type="button" id="login">login</button>
 				<button type="button" id="logingoogle">logingoogle</button>
 				<button type="button" id="logout" onclick="signOut();">logout</button> 
+						<p class="event listening">Connecting to Device</p>
+						<p class="event received">Device is Ready</p>
+
+						<p id="feedback">not logged in</p>
+						<div id="show_data">Firebase data<br/>assumes you have a db with<br />songs/ id/ title: xx</div>
+						<button onclick="isAvailable()">Available?</button>
+						<button onclick="add_data()">add</button>
+						<button onclick="remove_data()">del</button>
+						<br/><br/>
+						<button onclick="loginGoogle()">Login with Google+</button>
+						<br/><br/>
+						<button onclick="trySilentLogin()">Try silent login with Google+</button>
+						<br/><br/>
+						<button onclick="logout()">Logout</button>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<button onclick="disconnect()">Disconnect</button>
+						<br/><br/>
+									
 				
-				<div class="g-signin2" data-onsuccess="onSignIn" ></div>	
+				
 			
 
 			</div>
