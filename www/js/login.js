@@ -2,7 +2,6 @@
 var provider = new firebase.auth.GoogleAuthProvider();
 
 
-
 function loginFirebase() {
 	 $('#register').click(function() {
 
@@ -106,103 +105,90 @@ function loginFirebaseStatus() {
 		
 }  
 
+document.addEventListener('deviceready', deviceReady, false);
+
+function deviceReady() {
+    //I get called when everything's ready for the plugin to be called!
+    console.log('Device is ready!');
+    window.plugins.googleplus.trySilentLogin(
+			{
+			  'scopes': '... ', // optional - space-separated list of scopes, If not included or empty, defaults to `profile` and `email`.
+			  'webClientId': 'client id of the web app/server side', // optional - clientId of your Web application from Credentials settings of your project - On Android, this MUST be included to get an idToken. On iOS, it is not required.
+			  'offline': true, // Optional, but requires the webClientId - if set to true the plugin will also return a serverAuthCode, which can be used to grant offline access to a non-Google server
+			},
+			function (obj) {
+			  alert(JSON.stringify(obj)); // do something useful instead of alerting
+			},
+			function (msg) {
+			  alert('error: ' + msg);
+			}
+		);
+}
 
 
-function loginGoogle() {
+/*
+
+function isAvailable() {
+    window.plugins.googleplus.isAvailable(function(avail) {alert(avail)});
+  }
+  function login() {
     window.plugins.googleplus.login(
-        {
-                 'webClientId' : '244487661018-8rn0cmocvl4p549fsfm3ag6umrgfrfd8.apps.googleusercontent.com',
-                 'offline': true
-        },
+        {},
         function (obj) {
-            document.querySelector("#image").src = obj.imageUrl;
-            document.querySelector("#image").style.visibility = 'visible';
-            document.querySelector("#feedback").innerHTML = "Hi, " + obj.displayName + ", " + obj.email;
-            if (!firebase.auth().currentUser) {
-                document.querySelector("#feedback").innerHTML ='signing firebase';
-                firebase.auth().signInWithCredential(firebase.auth.GoogleAuthProvider.credential(obj.idToken))
-                .then((success) => {
-                    console.log("success: " + JSON.stringify(success)); // to long json to put it in #feedback
-                })
-                .catch((error) => {
-                        document.querySelector("#feedback").innerHTML = "error0: " + JSON.stringify(error);
-                      });
-            }else{
-                document.querySelector("#feedback").innerHTML ='error1: already sigend in firebase';
-            }
+          document.querySelector("#image").src = obj.imageUrl;
+          document.querySelector("#image").style.visibility = 'visible';
+          document.querySelector("#feedback").innerHTML = "Hi, " + obj.displayName + ", " + obj.email;
         },
         function (msg) {
-          document.querySelector("#feedback").innerHTML = "error2: " + msg;
+          document.querySelector("#feedback").innerHTML = "error: " + msg;
         }
     );
   }
-  
-function isAvailable() {
-	window.plugins.googleplus.isAvailable(function(avail) {alert(avail)});
-}
-  
-function trySilentLogin() {
-window.plugins.googleplus.trySilentLogin(
-	{
-			 'webClientId' : '244487661018-8rn0cmocvl4p549fsfm3ag6umrgfrfd8.apps.googleusercontent.com',
-			 'offline': true
-	},
-	function (obj) {
-	  document.querySelector("#image").src = obj.imageUrl;
-	  document.querySelector("#image").style.visibility = 'visible';
-	  document.querySelector("#feedback").innerHTML = "Silent hi, " + obj.displayName + ", " + obj.email;
-	},
-	function (msg) {
-	  document.querySelector("#feedback").innerHTML = "error: " + msg;
-	}
-);
-}
-  
-function logout() {
-window.plugins.googleplus.logout(
-	function (msg) {
-	  document.querySelector("#image").style.visibility = 'hidden';
-	  document.querySelector("#feedback").innerHTML = msg;
-	  if(firebase.auth().currentUser){
-		document.querySelector("#feedback").innerHTML ='signing out from firebase';
-		firebase.auth().signOut();
-	  }
-	},
-	function (msg) {
-	  document.querySelector("#feedback").innerHTML = msg;
-	}
-);
-}
-  
-function disconnect() {
-window.plugins.googleplus.disconnect(
-	function (msg) {
-	  document.querySelector("#image").style.visibility = 'hidden';
-	  document.querySelector("#feedback").innerHTML = msg;
-	  if(firebase.auth().currentUser){
-		document.querySelector("#feedback").innerHTML ='signing out from firebase';
-		firebase.auth().signOut();
-	  }
-	},
-	function (msg) {
-	  document.querySelector("#feedback").innerHTML = msg;
-	}
-);
-}
-  
-window.onerror = function(what, line, file) {
-	alert(what + '; ' + line + '; ' + file);
-};
-  
-function handleOpenURL (url) {
-	document.querySelector("#feedback").innerHTML = "App was opened by URL: " + url;
-}
+  function trySilentLogin() {
+    window.plugins.googleplus.trySilentLogin(
+        {},
+        function (obj) {
+          document.querySelector("#image").src = obj.imageUrl;
+          document.querySelector("#image").style.visibility = 'visible';
+          document.querySelector("#feedback").innerHTML = "Silent hi, " + obj.displayName + ", " + obj.email;
+        },
+        function (msg) {
+          document.querySelector("#feedback").innerHTML = "error: " + msg;
+        }
+    );
+  }
+  function logout() {
+    window.plugins.googleplus.logout(
+        function (msg) {
+          document.querySelector("#image").style.visibility = 'hidden';
+          document.querySelector("#feedback").innerHTML = msg;
+        },
+        function (msg) {
+          document.querySelector("#feedback").innerHTML = msg;
+        }
+    );
+  }
+  function disconnect() {
+    window.plugins.googleplus.disconnect(
+        function (msg) {
+          document.querySelector("#image").style.visibility = 'hidden';
+          document.querySelector("#feedback").innerHTML = msg;
+        },
+        function (msg) {
+          document.querySelector("#feedback").innerHTML = msg;
+        }
+    );
+  }
+  window.onerror = function(what, line, file) {
+    alert(what + '; ' + line + '; ' + file);
+  };
+  function handleOpenURL (url) {
+    document.querySelector("#feedback").innerHTML = "App was opened by URL: " + url;
+  }
 
 
-
-
-
-
+  */
+  
 
 function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();

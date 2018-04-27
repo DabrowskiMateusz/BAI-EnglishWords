@@ -16,8 +16,9 @@
 		<script src="js/firebase.js"></script>
 		<script src="js/addingWords.js"></script>
 		<script src="js/login.js"></script>
+		
 		<script async src="js/flashcard.js"></script>
-		<script src="https://apis.google.com/js/platform.js"></script>
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
 		<meta name="google-signin-client_id" content="244487661018-8rn0cmocvl4p549fsfm3ag6umrgfrfd8.apps.googleusercontent.com">
 		<meta name="google-signin-cookiepolicy" content="single_host_origin">
 		<meta name="google-signin-scope" content="profile email">
@@ -48,27 +49,28 @@
 				<button type="button" id="login">login</button>
 				<button type="button" id="logingoogle">logingoogle</button>
 				<button type="button" id="logout" onclick="signOut();">logout</button> 
-						<p class="event listening">Connecting to Device</p>
-						<p class="event received">Device is Ready</p>
+				
+				
 
-						<p id="feedback">not logged in</p>
-						<div id="show_data">Firebase data<br/>assumes you have a db with<br />songs/ id/ title: xx</div>
-						<button onclick="isAvailable()">Available?</button>
-						<button onclick="add_data()">add</button>
-						<button onclick="remove_data()">del</button>
-						<br/><br/>
-						<button onclick="loginGoogle()">Login with Google+</button>
-						<br/><br/>
-						<button onclick="trySilentLogin()">Try silent login with Google+</button>
-						<br/><br/>
-						<button onclick="logout()">Logout</button>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<button onclick="disconnect()">Disconnect</button>
-						<br/><br/>
+							<div id="deviceready" class="blink">
+							<p class="event listening">Connecting to Device</p>
+							<p class="event received">Device is Ready</p>
+
+							<p id="feedback">not logged in</p>
+							<button onclick="isAvailable()">Available?</button>
+							<br/><br/>
+							<button onclick="login()">Login with Google+</button>
+							<br/><br/>
+							<button onclick="trySilentLogin()">Try silent login with Google+</button>
+							<br/><br/>
+							<button onclick="logout()">Logout</button>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<button onclick="disconnect()">Disconnect</button>
+							<br/><br/>
+							<button onclick="window.plugins.googleplus.getSigningCertificateFingerprint(function(res){alert(res)}, function(res){alert(res)})">get cert fingerprint (Android)</button>
+						  </div>
 									
 				
-				
-			
 
 			</div>
 		</div>
