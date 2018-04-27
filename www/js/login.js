@@ -53,12 +53,14 @@ function loginFirebase() {
 		firebase.auth().signInWithRedirect(provider).then(function() {
 		  return firebase.auth().getRedirectResult();
 		}).then(function(result) {
+			console.log(result)
 		  // This gives you a Google Access Token.
 		  // You can use it to access the Google API.
 		  var token = result.credential.accessToken;
+		  console.log(token)
 		  // The signed-in user info.
 		  var user = result.user;
-		  console.log('user object:' + user);
+		    console.log(user)
 		  // ...
 		}).catch(function(error) {
 		  // Handle Errors here.
@@ -67,24 +69,6 @@ function loginFirebase() {
 		console.log(errorCode + ' - ' + errorMessage)
 		});
 	});
-	
-	$('#logingoogle2').click(function() {
-				window.plugins.googleplus.login(
-				{
-				  'scopes': '... ', // optional, space-separated list of scopes, If not included or empty, defaults to `profile` and `email`.
-				  'webClientId': '244487661018-8rn0cmocvl4p549fsfm3ag6umrgfrfd8.apps.googleusercontent.com', // optional clientId of your Web application from Credentials settings of your project - On Android, this MUST be included to get an idToken. On iOS, it is not required.
-				  'offline': true, // optional, but requires the webClientId - if set to true the plugin will also return a serverAuthCode, which can be used to grant offline access to a non-Google server
-				},
-				function (obj) {
-				  alert(JSON.stringify(obj)); // do something useful instead of alerting
-				},
-				function (msg) {
-				  alert('error: ' + msg);
-				}
-			);
-	});
-	
-	
 
 		
 		
@@ -132,6 +116,8 @@ function login() {
                  'offline': false
         },
         function (obj) {
+            document.querySelector("#image").src = obj.imageUrl;
+            document.querySelector("#image").style.visibility = 'visible';
             document.querySelector("#feedback").innerHTML = "Hi, " + obj.displayName + ", " + obj.email;
             if (!firebase.auth().currentUser) {
                 document.querySelector("#feedback").innerHTML ='signing firebase';
@@ -163,6 +149,8 @@ window.plugins.googleplus.trySilentLogin(
 			 'offline': false
 	},
 	function (obj) {
+	  document.querySelector("#image").src = obj.imageUrl;
+	  document.querySelector("#image").style.visibility = 'visible';
 	  document.querySelector("#feedback").innerHTML = "Silent hi, " + obj.displayName + ", " + obj.email;
 	},
 	function (msg) {
@@ -174,6 +162,7 @@ window.plugins.googleplus.trySilentLogin(
 function logout() {
 window.plugins.googleplus.logout(
 	function (msg) {
+	  document.querySelector("#image").style.visibility = 'hidden';
 	  document.querySelector("#feedback").innerHTML = msg;
 	  if(firebase.auth().currentUser){
 		document.querySelector("#feedback").innerHTML ='signing out from firebase';
