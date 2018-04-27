@@ -50,7 +50,7 @@ function loginFirebase() {
 		});
 		
 		$('#logingoogle').click(function() {
-		firebase.auth().signInWithPopup(provider).then(function() {
+		firebase.auth().signInWithRedirect(provider).then(function() {
 		  return firebase.auth().getRedirectResult();
 		}).then(function(result) {
 		  // This gives you a Google Access Token.
