@@ -158,13 +158,12 @@ function isUserEqual(googleUser, firebaseUser) {
 }
 
 
-  
-
-
+ 
 function init() {
 	loginFirebase();
 	loginFirebaseStatus();
 }
+
 
 
 

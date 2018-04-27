@@ -16,10 +16,8 @@
 		<script src="js/firebase.js"></script>
 		<script src="js/addingWords.js"></script>
 		<script src="js/login.js"></script>
-		<script src="cordova.js"></script>
-		
 		<script async src="js/flashcard.js"></script>
-		<script src="https://apis.google.com/js/platform.js" async defer></script>
+		<script src="https://apis.google.com/js/platform.js"></script>
 		<meta name="google-signin-client_id" content="244487661018-8rn0cmocvl4p549fsfm3ag6umrgfrfd8.apps.googleusercontent.com">
 		<meta name="google-signin-cookiepolicy" content="single_host_origin">
 		<meta name="google-signin-scope" content="profile email">
@@ -49,8 +47,10 @@
 				<button type="button" id="register">Register</button> 
 				<button type="button" id="login">login</button>
 				<button type="button" id="logingoogle">logingoogle</button>
-				<button type="button" id="logingoogle2">logingoogle</button>
-				<button type="button" id="logout">logout</button> 
+				<button type="button" id="logout" onclick="signOut();">logout</button> 
+				
+				<div class="g-signin2" data-onsuccess="onSignIn" ></div>	
+			
 
 			</div>
 		</div>

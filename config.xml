@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
     <widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
-		id          = "slowkonadzis"
+		id          = "Slowkonadzis"
         version     = "1.0.0" >
     <name>Słówko na dziś</name>
     <description>Aplikacja do nauki języka angielskiego</description>
@@ -26,7 +26,8 @@
     <framework src="merges/android/build.gradle" custom="true" type="gradleReference" />
 	</platform>
 		
-		<plugin name="cordova-plugin-googleplus" source="npm" spec="5.2.1">
+		<plugin name="cordova-plugin-googleplus" source="npm">
+ 		  <variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.244487661018-8rn0cmocvl4p549fsfm3ag6umrgfrfd8" />
  		  <variable name="WEB_APPLICATION_CLIENT_ID" value="244487661018-8rn0cmocvl4p549fsfm3ag6umrgfrfd8.apps.googleusercontent.com" />
  		</plugin>
 		
