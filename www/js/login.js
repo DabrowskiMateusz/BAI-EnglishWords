@@ -51,7 +51,7 @@ function loginFirebase() {
 		
 		$('#logingoogle').click(function() {
 			
-			firebase.auth().signInWithPopup(provider);
+			firebase.auth().signInWithRedirect(provider);
 			
 	});
 	
@@ -144,8 +144,7 @@ function login() {
                  'offline': true
         },
         function (obj) {
-			 document.querySelector("#image").src = obj.imageUrl;
-            document.querySelector("#image").style.visibility = 'visible';
+		
             document.querySelector("#feedback").innerHTML = "Hi, " + obj.displayName + ", " + obj.email;
             if (!firebase.auth().currentUser) {
                 document.querySelector("#feedback").innerHTML ='signing firebase';
@@ -177,8 +176,7 @@ window.plugins.googleplus.trySilentLogin(
 			 'offline': true
 	},
 	function (obj) {
-		 document.querySelector("#image").src = obj.imageUrl;
-         document.querySelector("#image").style.visibility = 'visible';
+		
 	  document.querySelector("#feedback").innerHTML = "Silent hi, " + obj.displayName + ", " + obj.email;
 	},
 	function (msg) {
@@ -205,9 +203,7 @@ window.plugins.googleplus.logout(
   
 function disconnect() {
 window.plugins.googleplus.disconnect(
-	function (msg) {
-	  document.querySelector("#image").style.visibility = 'hidden';
-	  document.querySelector("#feedback").innerHTML = msg;
+	function (msg) 
 	  if(firebase.auth().currentUser){
 		document.querySelector("#feedback").innerHTML ='signing out from firebase';
 		firebase.auth().signOut();
