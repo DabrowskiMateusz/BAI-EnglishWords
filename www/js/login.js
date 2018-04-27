@@ -49,15 +49,8 @@ function loginFirebase() {
 			}  
 		});
 		
+	
 		$('#logingoogle').click(function() {
-			
-			firebase.auth().signInWithRedirect(provider);
-			
-	});
-	
-	
-	
-	$('#logingoogle2').click(function() {
 			 window.plugins.googleplus.login(
         {
                  'webClientId' : '244487661018-8rn0cmocvl4p549fsfm3ag6umrgfrfd8.apps.googleusercontent.com',
@@ -119,15 +112,13 @@ function loginFirebaseStatus() {
 		  } else {
 			$( "#loggedas" ).html('user logged out');
 		  }
-		});
+			});
 		
 		
 			firebase.auth().getRedirectResult().then(function(result) {
 			  if (result.credential) {
 				// This gives you a Google Access Token. You can use it to access the Google API.
 				var token = result.credential.accessToken;
-				console.log(token);
-				// ...
 			  }
 			  // The signed-in user info.
 			  var user = result.user;
@@ -145,97 +136,30 @@ function loginFirebaseStatus() {
 			  // ...
 			});
 			
-			
 }  
-
-
-function login() {
-    window.plugins.googleplus.login(
-        {
-                 'webClientId' : '244487661018-8rn0cmocvl4p549fsfm3ag6umrgfrfd8.apps.googleusercontent.com',
-                 'offline': true
-        },
-        function (obj) {
-		
-            document.querySelector("#feedback").innerHTML = "Hi, " + obj.displayName + ", " + obj.email;
-            if (!firebase.auth().currentUser) {
-                document.querySelector("#feedback").innerHTML ='signing firebase';
-                firebase.auth().signInWithCredential(firebase.auth.GoogleAuthProvider.credential(obj.idToken))
-                .then((success) => {
-                    console.log("success: " + JSON.stringify(success)); // to long json to put it in #feedback
-                })
-                .catch((error) => {
-                        document.querySelector("#feedback").innerHTML = "error0: " + JSON.stringify(error);
-                      });
-            }else{
-                document.querySelector("#feedback").innerHTML ='error1: already sigend in firebase';
-            }
-        },
-        function (msg) {
-          document.querySelector("#feedback").innerHTML = "error2: " + msg;
-        }
-    );
-  }
-  
-function isAvailable() {
-	window.plugins.googleplus.isAvailable(function(avail) {alert(avail)});
-}
+ 
   
 function trySilentLogin() {
 window.plugins.googleplus.trySilentLogin(
-	{
-			 'webClientId' : '244487661018-8rn0cmocvl4p549fsfm3ag6umrgfrfd8.apps.googleusercontent.com',
-			 'offline': true
-	},
-	function (obj) {
-		
-	  document.querySelector("#feedback").innerHTML = "Silent hi, " + obj.displayName + ", " + obj.email;
-	},
-	function (msg) {
-	  document.querySelector("#feedback").innerHTML = "error: " + msg;
-	}
-);
+		{
+				 'webClientId' : '244487661018-8rn0cmocvl4p549fsfm3ag6umrgfrfd8.apps.googleusercontent.com',
+				 'offline': true
+		},
+		function (obj) {
+			
+		  document.querySelector("#feedback").innerHTML = "Silent hi, " + obj.displayName + ", " + obj.email;
+		},
+		function (msg) {
+		  document.querySelector("#feedback").innerHTML = "error: " + msg;
+		}
+	);
 }
   
-function logoutf() {
-window.plugins.googleplus.logout(
-	function (msg) {
-	  document.querySelector("#image").style.visibility = 'hidden';
-	  document.querySelector("#feedback").innerHTML = msg;
-	  if(firebase.auth().currentUser){
-		document.querySelector("#feedback").innerHTML ='signing out from firebase';
-		firebase.auth().signOut();
-	  }
-	},
-	function (msg) {
-	  document.querySelector("#feedback").innerHTML = msg;
-	}
-);
-}
-  
-function disconnect() {
-window.plugins.googleplus.disconnect(
-	function (msg) {
-	  document.querySelector("#feedback").innerHTML = msg;
-	  if(firebase.auth().currentUser){
-		document.querySelector("#feedback").innerHTML ='signing out from firebase';
-		firebase.auth().signOut();
-	  }
-	},
-	function (msg) {
-	  document.querySelector("#feedback").innerHTML = msg;
-	}
-);
-}
   
 window.onerror = function(what, line, file) {
 	alert(what + '; ' + line + '; ' + file);
 };
   
-function handleOpenURL (url) {
-	document.querySelector("#feedback").innerHTML = "App was opened by URL: " + url;
-}
-
 
 
 function signOut() {
@@ -261,8 +185,6 @@ function isUserEqual(googleUser, firebaseUser) {
   return false;
 }
 
-
-  
 
 
 function init() {

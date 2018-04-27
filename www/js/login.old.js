@@ -233,3 +233,46 @@ window.onerror = function(what, line, file) {
 function handleOpenURL (url) {
 	document.querySelector("#feedback").innerHTML = "App was opened by URL: " + url;
 }
+
+
+
+
+
+
+function logoutf() {
+window.plugins.googleplus.logout(
+	function (msg) {
+	  if(firebase.auth().currentUser){
+		firebase.auth().signOut();
+	  }
+	},
+	function (msg) {
+	 console.log(msg);
+	}
+);
+
+function disconnect() {
+window.plugins.googleplus.disconnect(
+	function (msg) {
+	  document.querySelector("#feedback").innerHTML = msg;
+	  if(firebase.auth().currentUser){
+		document.querySelector("#feedback").innerHTML ='signing out from firebase';
+		firebase.auth().signOut();
+	  }
+	},
+	function (msg) {
+	  document.querySelector("#feedback").innerHTML = msg;
+	}
+);
+}
+
+
+  
+function handleOpenURL (url) {
+	document.querySelector("#feedback").innerHTML = "App was opened by URL: " + url;
+}
+
+
+
+
+
