@@ -53,14 +53,14 @@ function loginFirebase() {
 		firebase.auth().signInWithRedirect(provider).then(function() {
 		  return firebase.auth().getRedirectResult();
 		}).then(function(result) {
-			console.log(result)
+			console.log('result:' + result)
 		  // This gives you a Google Access Token.
 		  // You can use it to access the Google API.
 		  var token = result.credential.accessToken;
-		  console.log(token)
+		  console.log('token:' + token)
 		  // The signed-in user info.
 		  var user = result.user;
-		    console.log(user)
+		    console.log('user:' + user)
 		  // ...
 		}).catch(function(error) {
 		  // Handle Errors here.
@@ -108,6 +108,7 @@ function loginFirebaseStatus() {
 		
 }  
 
+/*
 
 function login() {
     window.plugins.googleplus.login(
@@ -201,10 +202,6 @@ function handleOpenURL (url) {
 
 
 
-
-  
-  
-
 function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
@@ -229,7 +226,7 @@ function isUserEqual(googleUser, firebaseUser) {
 }
 
 
-  
+  */
 
 
 function init() {
