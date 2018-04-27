@@ -22,7 +22,9 @@
 " />
 		
 		
-	<platform name="android" />
+	<platform name="android">
+    <framework src="merges/android/build.gradle" custom="true" type="gradleReference" />
+	</platform>
 	
 	<preference name="DisallowOverscroll" value="true" />
 	<plugin name="cordova-plugin-device" spec="~1.1.4" />
