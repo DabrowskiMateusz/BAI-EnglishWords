@@ -106,15 +106,9 @@ function loginFirebaseStatus() {
 }  
 
 
-
-
-document.addEventListener("deviceready", onDeviceReady, false);
-
-function onDeviceReady() {
-    // Now safe to use device APIs
-
-		console.log('device ready');
-
+document.addEventListener("deviceready", function() {
+alert(window.plugins);
+}, false);
 
 function isAvailable() {
     window.plugins.googleplus.isAvailable(function(avail) {alert(avail)});
@@ -175,7 +169,7 @@ function isAvailable() {
   }
 
 
-  }
+  
   
 
 function signOut() {
