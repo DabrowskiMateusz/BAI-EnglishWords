@@ -28,7 +28,7 @@
 
 	</head>
 	<body onload="init()">
-		
+	<div id="deviceready" class="blink">
 		
 	<div data-role="page" id="loginpage" >
 		<div data-role="header" id="header">
@@ -37,7 +37,8 @@
 					Możesz również założyć konto używając FB, lub GOOGLE
 				</div>	
 				<div id="robotofont">
-					Zalogowany jako <p id="loggedas"> </p>
+					Zalogowany jako <p id="loggedas"> </p> <br>
+					 <p id="feedback">
 					
 				</div>	
 		</div>
@@ -48,23 +49,18 @@
 				<button type="button" id="register">Register</button> 
 				<button type="button" id="login">login</button>
 				<button type="button" id="logingoogle">logingoogle</button>
-				<button type="button" id="logingoogle2">logingoogle</button>
 				<button type="button" id="logout" >logout</button> 
 			
 				<img id="image" style="position:absolute; top:10px; left:10px" src="" />
 
-							<div id="deviceready" class="blink">
-							<p class="event listening">Connecting to Device</p>
-							<p class="event received">Device is Ready</p>
-
 							
-						  </div>
+						 
 									
 				
 
 			</div>
 		</div>
 	</div>
-
+ </div>
 	</body>
 </html>
