@@ -109,7 +109,7 @@ function loginFirebaseStatus() {
 function login() {
     window.plugins.googleplus.login(
         {
-                 'webClientId' : '244487661018-5tqiebar01375a4ss7b5vsm02qda4lst.apps.googleusercontent.com',
+                 'webClientId' : '244487661018-8rn0cmocvl4p549fsfm3ag6umrgfrfd8.apps.googleusercontent.com',
                  'offline': false
         },
         function (obj) {
@@ -142,7 +142,7 @@ function isAvailable() {
 function trySilentLogin() {
 window.plugins.googleplus.trySilentLogin(
 	{
-			 'webClientId' : '244487661018-5tqiebar01375a4ss7b5vsm02qda4lst.apps.googleusercontent.com',
+			 'webClientId' : '244487661018-8rn0cmocvl4p549fsfm3ag6umrgfrfd8.apps.googleusercontent.com',
 			 'offline': false
 	},
 	function (obj) {
