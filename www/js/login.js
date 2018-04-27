@@ -50,22 +50,14 @@ function loginFirebase() {
 		});
 		
 		$('#logingoogle').click(function() {
-		firebase.auth().signInWithRedirect(provider).then(function() {
-		  return firebase.auth().getRedirectResult();
-		}).then(function(result) {
-		  // This gives you a Google Access Token.
-		  // You can use it to access the Google API.
-		  var token = result.credential.accessToken;
-		  // The signed-in user info.
-		  var user = result.user;
-		  // ...
-		}).catch(function(error) {
-		  // Handle Errors here.
-		  var errorCode = error.code;
-		  var errorMessage = error.message;
-		console.log(errorCode + ' - ' + errorMessage)
-		});
+	
+		provider.addScope('https://www.googleapis.com/auth/plus.login');
+
+		firebase.auth().signInWithRedirect(provider);
+
 	});
+	
+	
 	
 	$('#logingoogle2').click(function() {
 				window.plugins.googleplus.login(
@@ -84,8 +76,6 @@ function loginFirebase() {
 	});
 	
 	
-
-		
 		
 		$('#logout').click(function() {
 
@@ -121,6 +111,11 @@ function loginFirebaseStatus() {
 		  }
 		});
 		
+		firebase.auth().getRedirectResult().then(function(authData) {
+			console.log(authData);
+		}).catch(function(error) {
+			console.log(error);
+		});
 }  
 
 
@@ -174,7 +169,7 @@ window.plugins.googleplus.trySilentLogin(
 );
 }
   
-function logout() {
+function logoutf() {
 window.plugins.googleplus.logout(
 	function (msg) {
 	  document.querySelector("#image").style.visibility = 'hidden';
