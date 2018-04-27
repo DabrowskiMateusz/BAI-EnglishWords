@@ -51,7 +51,7 @@ function loginFirebase() {
 		
 		$('#logingoogle').click(function() {
 			
-			firebase.auth().signInWithRedirect(provider);
+			firebase.auth().signInWithPopup(provider);
 			
 	});
 	
@@ -141,9 +141,11 @@ function login() {
     window.plugins.googleplus.login(
         {
                  'webClientId' : '244487661018-8rn0cmocvl4p549fsfm3ag6umrgfrfd8.apps.googleusercontent.com',
-                 'offline': false
+                 'offline': true
         },
         function (obj) {
+			 document.querySelector("#image").src = obj.imageUrl;
+            document.querySelector("#image").style.visibility = 'visible';
             document.querySelector("#feedback").innerHTML = "Hi, " + obj.displayName + ", " + obj.email;
             if (!firebase.auth().currentUser) {
                 document.querySelector("#feedback").innerHTML ='signing firebase';
@@ -172,9 +174,11 @@ function trySilentLogin() {
 window.plugins.googleplus.trySilentLogin(
 	{
 			 'webClientId' : '244487661018-8rn0cmocvl4p549fsfm3ag6umrgfrfd8.apps.googleusercontent.com',
-			 'offline': false
+			 'offline': true
 	},
 	function (obj) {
+		 document.querySelector("#image").src = obj.imageUrl;
+         document.querySelector("#image").style.visibility = 'visible';
 	  document.querySelector("#feedback").innerHTML = "Silent hi, " + obj.displayName + ", " + obj.email;
 	},
 	function (msg) {
