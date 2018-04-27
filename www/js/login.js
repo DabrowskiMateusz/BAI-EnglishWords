@@ -58,20 +58,32 @@ function loginFirebase() {
 	
 	
 	$('#logingoogle2').click(function() {
-				window.plugins.googleplus.login(
-				{
-				  'scopes': '... ', // optional, space-separated list of scopes, If not included or empty, defaults to `profile` and `email`.
-				  'webClientId': '244487661018-8rn0cmocvl4p549fsfm3ag6umrgfrfd8.apps.googleusercontent.com', // optional clientId of your Web application from Credentials settings of your project - On Android, this MUST be included to get an idToken. On iOS, it is not required.
-				  'offline': true, // optional, but requires the webClientId - if set to true the plugin will also return a serverAuthCode, which can be used to grant offline access to a non-Google server
-				},
-				function (obj) {
-				  alert(JSON.stringify(obj)); // do something useful instead of alerting
-				},
-				function (msg) {
-				  alert('error: ' + msg);
-				}
-			);
-	});
+			 window.plugins.googleplus.login(
+        {
+                 'webClientId' : '244487661018-8rn0cmocvl4p549fsfm3ag6umrgfrfd8.apps.googleusercontent.com',
+                 'offline': true
+        },
+        function (obj) {
+		
+            document.querySelector("#feedback").innerHTML = "Hi, " + obj.displayName + ", " + obj.email;
+            if (!firebase.auth().currentUser) {
+                document.querySelector("#feedback").innerHTML ='signing firebase';
+                firebase.auth().signInWithCredential(firebase.auth.GoogleAuthProvider.credential(obj.idToken))
+                .then((success) => {
+                    console.log("success: " + JSON.stringify(success)); // to long json to put it in #feedback
+                })
+                .catch((error) => {
+                        document.querySelector("#feedback").innerHTML = "error0: " + JSON.stringify(error);
+                      });
+            }else{
+                document.querySelector("#feedback").innerHTML ='error1: already sigend in firebase';
+            }
+        },
+        function (msg) {
+          document.querySelector("#feedback").innerHTML = "error2: " + msg;
+        }
+    );	
+});
 	
 	
 		
