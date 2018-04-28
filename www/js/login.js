@@ -83,8 +83,8 @@ function loginFirebase() {
 	});
 	
 	$('#loginfacebook').click(function() {
-  
-	facebookConnectPlugin.login("2075370282477095", ["public_profile","email"],function(result){
+	facebookConnectPlugin.browserInit("207537028247709")
+	facebookConnectPlugin.login(["public_profile","email"],function(result){
 		 console.log("RESULT:" + result);
 		  console.log("RESULT2:" + result.authResponse);
 		  console.log("RESULT3:" + result.authResponse.accessToken);
