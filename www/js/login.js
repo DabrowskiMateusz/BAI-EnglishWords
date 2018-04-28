@@ -1,6 +1,7 @@
 
 var provider = new firebase.auth.GoogleAuthProvider();
 
+var provider = new firebase.auth.FacebookAuthProvider();
 
 function loginFirebase() {
 	 $('#register').click(function() {
@@ -63,7 +64,7 @@ function loginFirebase() {
             if (!firebase.auth().currentUser) {
                 document.querySelector("#feedback").innerHTML ='signing firebase';
 					console.log(obj.idToken);
-                firebase.auth().signInWithCredential(firebase.auth.FacebookAuthProvider.credential(obj.idToken))
+                firebase.auth().signInWithCredential(firebase.auth.GoogleAuthProvider.credential(obj.idToken))
                 .then((success) => {
                     console.log("success: " + JSON.stringify(success)); // to long json to put it in #feedback
                 })
@@ -82,8 +83,8 @@ function loginFirebase() {
 	});
 	
 	$('#loginfacebook').click(function() {
-
-	facebookConnectPlugin.login(["public_profile","email"],function(result){
+  
+	facebookConnectPlugin.login("2075370282477095", ["public_profile","email"],function(result){
 		 console.log("RESULT:" + result);
 		  console.log("RESULT2:" + result.authResponse);
 		  console.log("RESULT3:" + result.authResponse.accessToken);
