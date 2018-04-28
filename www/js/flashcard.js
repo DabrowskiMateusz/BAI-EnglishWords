@@ -27,6 +27,7 @@ function loadNextWordPair(){
     currentPair = getRandomWordPair();
 }
 
+
 function getRandomWordPair(){
     var category = $('#selectlistFlashcards').val();
     var path = createPath([allUsers, wordLists, category]);
