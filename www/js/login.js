@@ -82,14 +82,14 @@ function loginFirebase() {
 	$('#loginfacebook').click(function() {
 
 	facebookConnectPlugin.login(["public_profile","email"],function(result){
-		 console.log(JSON.stringify("RESULT:" + result));
-		  console.log(JSON.stringify("RESULT2:" + result.authResponse));
-		  console.log(JSON.stringify("RESULT3:" + result.authResponse.accessToken));
+		 console.log("RESULT:" + result);
+		  console.log("RESULT2:" + result.authResponse);
+		  console.log("RESULT3:" + result.authResponse.accessToken);
 		  
-			//firebase.auth().signInWithCredential(firebase.auth.GoogleAuthProvider.credential(result.accessToken))
-              //  .then((success) => {
-               //     console.log("success: " + JSON.stringify(success)); 
-              //  })
+			firebase.auth().signInWithCredential(firebase.auth.GoogleAuthProvider.credential(result.authResponse.accessToken))
+                .then((success) => {
+                    console.log("success: " + JSON.stringify(success)); 
+               })
 			  
     //calling api after login success
      facebookConnectPlugin.api("/me?fields=email,name,picture",
