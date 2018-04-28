@@ -3,6 +3,8 @@ var provider = new firebase.auth.GoogleAuthProvider();
 
 var provider = new firebase.auth.FacebookAuthProvider();
 
+
+
 function loginFirebase() {
 	 $('#register').click(function() {
 
@@ -83,7 +85,6 @@ function loginFirebase() {
 	});
 	
 	$('#loginfacebook').click(function() {
-	facebookConnectPlugin.browserInit("207537028247709");
 	facebookConnectPlugin.login(["public_profile","email"],function(result){
 		 console.log("RESULT:" + result);
 		  console.log("RESULT2:" + result.authResponse);
