@@ -87,14 +87,14 @@ function loginFirebase() {
      ["public_profile","email"]
      ,function(userData){
          //API success callback
-         alert(JSON.stringify(userData));
+         console.log(JSON.stringify(userData));
       },function(error){
          //API error callback
-         alert(JSON.stringify(error));
+         console.log(JSON.stringify(error));
       });
    },function(error){
       //authenication error callback
-      alert(JSON.stringify(error));
+     console.log(JSON.stringify(error));
      });
 		
 	
