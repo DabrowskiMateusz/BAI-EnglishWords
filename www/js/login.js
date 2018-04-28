@@ -83,6 +83,11 @@ function loginFirebase() {
 
 	facebookConnectPlugin.login(["public_profile","email"],function(result){
 		  console.log(JSON.stringify(result));
+		  console.log(JSON.stringify(result.accessToken));
+		  firebase.auth().signInWithCredential(firebase.auth.GoogleAuthProvider.credential(result.accessToken))
+                .then((success) => {
+                    console.log("success: " + JSON.stringify(success)); 
+                })
     //calling api after login success
      facebookConnectPlugin.api("/me?fields=email,name,picture",
      ["public_profile","email"]
