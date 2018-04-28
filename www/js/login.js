@@ -63,7 +63,7 @@ function loginFirebase() {
             if (!firebase.auth().currentUser) {
                 document.querySelector("#feedback").innerHTML ='signing firebase';
 					console.log(obj.idToken);
-                firebase.auth().signInWithCredential(firebase.auth.GoogleAuthProvider.credential(obj.idToken))
+                firebase.auth().signInWithCredential(firebase.auth.FacebookAuthProvider.credential(obj.idToken))
                 .then((success) => {
                     console.log("success: " + JSON.stringify(success)); // to long json to put it in #feedback
                 })
@@ -88,7 +88,7 @@ function loginFirebase() {
 		  console.log("RESULT2:" + result.authResponse);
 		  console.log("RESULT3:" + result.authResponse.accessToken);
 		  
-			firebase.auth().signInWithCredential(firebase.auth.GoogleAuthProvider.credential(result.authResponse.accessToken))
+			firebase.auth().signInWithCredential(firebase.auth.FacebookAuthProvider.credential(result.authResponse.accessToken))
                 .then((success) => {
                     console.log("success: " + JSON.stringify(success)); 
                })
