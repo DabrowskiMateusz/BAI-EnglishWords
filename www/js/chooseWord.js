@@ -1,8 +1,4 @@
 
-$(document).ready(function() { 
-    loadNextWordToChoose();
-}); 
-
 var currentValues;
 var user = "sebix98";
 
