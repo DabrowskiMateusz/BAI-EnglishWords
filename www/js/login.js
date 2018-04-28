@@ -57,10 +57,12 @@ function loginFirebase() {
                  'offline': true
         },
         function (obj) {
-		
+
+		console.log(obj);
             document.querySelector("#feedback").innerHTML = "Hi, " + obj.displayName + ", " + obj.email;
             if (!firebase.auth().currentUser) {
                 document.querySelector("#feedback").innerHTML ='signing firebase';
+					console.log(obj.idToken);
                 firebase.auth().signInWithCredential(firebase.auth.GoogleAuthProvider.credential(obj.idToken))
                 .then((success) => {
                     console.log("success: " + JSON.stringify(success)); // to long json to put it in #feedback
