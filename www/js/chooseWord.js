@@ -4,6 +4,7 @@ $(document).ready(function() {
 }); 
 
 var currentValues;
+var user = "sebix98";
 
 function nextWord(){
     loadNextWordToChoose();
@@ -14,15 +15,25 @@ function loadNextWordToChoose(){
     if($("#nextWordButton").text()=='Sprawdź'){
         var selected =  $("#selectWordCheckList :radio:checked").prop("id");
         var labelVal = $("label[for='"+ selected +"']").html();
+        var path = createPath([user, "results", "choosing_words"]);
 
         if(labelVal == currentValues[0][1]){
             $("#chooseWordResult").html("Dobra odpowiedź!");
+            var fieldsValues = {
+                word: currentValues[0][0],
+                answer: true
+            }
+	        pushToDb(path, fieldsValues);
         }
         else{
+            var fieldsValues = {
+                word: currentValues[0][0],
+                answer: false
+            }
+            pushToDb(path, fieldsValues);
             $("#chooseWordResult").html("Zła odpowiedź, prawidłowe tłumaczenie to: " + currentValues[0][1]);
         }
 
-        $("input[type='radio']").attr("checked",false).checkboxradio("refresh");
         $("#nextWordButton").text('Następne');
     }
     else {
@@ -48,6 +59,7 @@ function loadNextWordToChoose(){
     
         $("#nextWordButton").text('Sprawdź');
         $("#chooseWordResult").html("");
+        $("input[type='radio']").attr("checked",false).checkboxradio("refresh");
     }
 }
 
