@@ -82,6 +82,7 @@ function loginFirebase() {
 	$('#loginfacebook').click(function() {
 
 	facebookConnectPlugin.login(["public_profile","email"],function(result){
+		  console.log(JSON.stringify(result));
     //calling api after login success
      facebookConnectPlugin.api("/me?fields=email,name,picture",
      ["public_profile","email"]
@@ -109,7 +110,14 @@ function loginFirebase() {
 			  // An error happened.
 			});
 		
+		facebookConnectPlugin.logout(function(){
+                        console.log("LOGOUT SUCCESS");
+                    },function(){
+                        console.log("LOGOUT FAIL");
+                    }); 
 		});
+		
+
 		
 		
 }  
