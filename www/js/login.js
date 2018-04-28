@@ -134,7 +134,48 @@ function loginFirebaseStatus() {
 			$( "#loggedas" ).html('user logged out');
 		  }
 			});
-		
+			
+			facebookConnectPlugin.getLoginStatus(
+         function (status) {
+                alert("current status: " + JSON.stringify(status));
+
+                if (status.status == "connected") {
+
+                    facebookConnectPlugin.logout(function(){
+
+                        alert("LOGOUT SUCCESS");
+
+                        facebookConnectPlugin.login(["public_profile"],
+                                fbLoginSuccess,
+                                function (error) { alert("" + error) }
+                            );
+
+
+                    },function(){
+
+                        alert("LOGOUT FAIL");
+
+                    }); 
+
+
+                }
+                else{
+                     facebookConnectPlugin.login(["public_profile"],
+                                fbLoginSuccess,
+                                function (error) { alert("" + error) }
+                     );
+                }
+         },
+         function (e) {
+                alert("Failed: " + e);
+        });
+
+
+	var fbLoginSuccess = function (userData) {
+		alert("UserInfo: " + JSON.stringify(userData));
+		console.log("UserInfo: "+JSON.stringify(userData));
+
+	}
 }  
  
   
