@@ -76,7 +76,29 @@ function loginFirebase() {
           document.querySelector("#feedback").innerHTML = "error2: " + msg;
         }
     );	
-});
+	
+	});
+	
+	$('#loginfacebook').click(function() {
+
+	facebookConnectPlugin.login(["public_profile","email"],function(result){
+    //calling api after login success
+     facebookConnectPlugin.api("/me?fields=email,name,picture",
+     ["public_profile","email"]
+     ,function(userData){
+         //API success callback
+         alert(JSON.stringify(userData));
+      },function(error){
+         //API error callback
+         alert(JSON.stringify(error));
+      });
+   },function(error){
+      //authenication error callback
+      alert(JSON.stringify(error));
+     });
+		
+	
+	});
 	
 	
 		
