@@ -1,18 +1,15 @@
 
-var provider = new firebase.auth.GoogleAuthProvider();
 
-var provider = new firebase.auth.FacebookAuthProvider();
-
-
-
+// "duża" funkcja w której używamy poszczególnych id przypisanych do przycisków do wywołania danej funkcji..
 function loginFirebase() {
-	 $('#register').click(function() {
-
+	 $('#register').click(function() {  
+			
+			// validacja email i passoword, ponieważ muszą być one "valid" by przekazać je do funkcji poniższej.
 			var email = $('#userEmail');    
 			var pass = $('#userPass');      
 
 						if(email.val() && pass.val()){
-
+			// założenie konta w firebase przy wykożystaniu loginu i hasła
 				firebase.auth().createUserWithEmailAndPassword(email.val(), pass.val()).then(function(user){
 					console.log('everything went fine');
 					console.log('user object:' + user);
@@ -35,7 +32,7 @@ function loginFirebase() {
 			var pass = $('#userPass');      
 
 						if(email.val() && pass.val()){
-
+			// logowanie na już założone konto w firebase.
 				firebase.auth().signInWithEmailAndPassword(email.val(), pass.val()).then(function(user){
 					console.log('everything went fine');
 					console.log('user object:' + user);
@@ -52,7 +49,14 @@ function loginFirebase() {
 			}  
 		});
 		
-	
+		
+		/* logowanie google: używamy pluginu: 
+		cordova-plugin-googleplus zgodnie z informacjami zawartymi w config.xml
+		dzięki temu pluginowi pobieramy idToken którego następnie używamy do zalogowania poprzez funckję 
+		signInWithCredential - UWAGA TA FUNKCJA STWORZY KONTO I ZALOGUJE UŻYTKOWNIKA ALE NIE PRZYPISUJE HASŁA DO KONTA, LOGOWANIE ODBYWA SIĘ BEZ HASŁA PRZEZ TEN TOKEN.
+		BARDZO WAŻNE JEST POPRAWNE SKONFUGIROWANIE PLUGINU W PLIKU config.xml.
+		*/
+		
 		$('#logingoogle').click(function() {
 			 window.plugins.googleplus.login(
         {
@@ -62,7 +66,7 @@ function loginFirebase() {
         function (obj) {
 
 		console.log(obj);
-            document.querySelector("#feedback").innerHTML = "Hi, " + obj.displayName + ", " + obj.email;
+            document.querySelector("#feedback").innerHTML = "Hello, " + obj.displayName + ", " + obj.email;
             if (!firebase.auth().currentUser) {
                 document.querySelector("#feedback").innerHTML ='signing firebase';
 					console.log(obj.idToken);
@@ -84,6 +88,14 @@ function loginFirebase() {
 	
 	});
 	
+	
+		/* logowanie google: używamy pluginu: 
+		cordova-plugin-facebook4 zgodnie z informacjami zawartymi w config.xml
+		dzięki temu pluginowi pobieramy idToken którego następnie używamy do zalogowania poprzez funckję 
+		signInWithCredential - UWAGA TA FUNKCJA STWORZY KONTO I ZALOGUJE UŻYTKOWNIKA ALE NIE PRZYPISUJE HASŁA DO KONTA, LOGOWANIE ODBYWA SIĘ BEZ HASŁA PRZEZ TEN TOKEN.
+		BARDZO WAŻNE JEST POPRAWNE SKONFUGIROWANIE PLUGINU W PLIKU config.xml, oraz poprawne wpisanie klucza "klucz tajny aplikacji", lub "app secret key" w polu w konsoli firebase (zakładka METODA LOGOWANIA)
+		*/
+		
 	$('#loginfacebook').click(function() {
 	facebookConnectPlugin.login(["public_profile","email"],function(result){
 		 console.log("RESULT:" + result);
@@ -124,6 +136,7 @@ function loginFirebase() {
 		
 		facebookConnectPlugin.logout(function(){
                         console.log("LOGOUT SUCCESS");
+						$( "#loggedas" ).html('user logged out');
                     },function(){
                         console.log("LOGOUT FAIL");
                     }); 
