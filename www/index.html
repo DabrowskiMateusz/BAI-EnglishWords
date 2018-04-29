@@ -16,6 +16,7 @@
 		<script src="js/firebase.js"></script>
 		<script src="js/addingWords.js"></script>
 		<script async src="js/flashcard.js"></script>
+		<script src="js/translateWords.js"></script>
 
 	</head>
 	<body onload="init()">
@@ -79,6 +80,33 @@
 				<div id="robotofont">
 					Wpisz słowo do przetłumaczenia!
 				</div>
+
+				<div id="wrapper">
+  <div class="container">
+    <div class="col">
+      <textarea class="text-to-translate" placeholder="Text to translate"></textarea>
+      
+      <select class="source-lang">
+        <option value="pl">Polish</option>
+                <option value="en">English</option>
+      </select>
+      <select class="target-lang">
+        <option value="pl">Polish</option>
+            <option value="en">English</option>
+      </select>
+
+      <button class="translate">Translate</button>
+      
+    </div>
+    <br>
+    <div class="col">
+      <h2 class="translation-heading">Translation</h2>
+      
+      <p class="target"></p>
+
+    </div>
+  </div>
+</div>
 		</div>
 	</div>
 
