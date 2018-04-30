@@ -96,34 +96,11 @@ function loginFirebase() {
 		BARDZO WAŻNE JEST POPRAWNE SKONFUGIROWANIE PLUGINU W PLIKU config.xml, oraz poprawne wpisanie klucza "klucz tajny aplikacji", lub "app secret key" w polu w konsoli firebase (zakładka METODA LOGOWANIA)
 		*/
 		
-	$('#loginfacebook').click(function() {
-	facebookConnectPlugin.login(["public_profile","email"],function(result){
-		 console.log("RESULT:" + result);
-		  console.log("RESULT2:" + result.authResponse);
-		  console.log("RESULT3:" + result.authResponse.accessToken);
-		  
-			firebase.auth().signInWithCredential(firebase.auth.FacebookAuthProvider.credential(result.authResponse.accessToken))
-                .then((success) => {
-                    console.log("success: " + JSON.stringify(success)); 
-               })
-			  
-    //calling api after login success
-     facebookConnectPlugin.api("/me?fields=email,name,picture",
-     ["public_profile","email"]
-     ,function(userData){
-         //API success callback
-         console.log(JSON.stringify(userData));
-      },function(error){
-         //API error callback
-         console.log(JSON.stringify(error));
-      });
-   },function(error){
-      //authenication error callback
-     console.log(JSON.stringify(error));
-     });
+	//$('#loginfacebook').click(function() {
+	
 		
 	
-	});
+	//});
 	
 
 		$('#logout').click(function() {
@@ -140,12 +117,48 @@ function loginFirebase() {
                     },function(){
                         console.log("LOGOUT FAIL");
                     }); 
-		});
-		
-
-		
-		
+		});	
 }  
+
+
+
+function loginfacebook(){
+	
+facebookConnectPlugin.getLoginStatus(
+            function (status) {
+                console.log("current status: " + JSON.stringify(status));
+            },
+            function (error) {
+                console.log("Something went wrong: " + JSON.stringify(error));
+            }
+	 );
+	 
+	facebookConnectPlugin.login(["public_profile","email"],function(result){
+			 console.log("RESULT:" + result);
+			  console.log("RESULT2:" + result.authResponse);
+			  console.log("RESULT3:" + result.authResponse.accessToken);
+			  
+				firebase.auth().signInWithCredential(firebase.auth.FacebookAuthProvider.credential(result.authResponse.accessToken))
+					.then((success) => {
+						console.log("success: " + JSON.stringify(success)); 
+				   })
+				  
+		//calling api after login success
+		 facebookConnectPlugin.api("/me?fields=email,name,picture",["public_profile","email"]
+		 ,function(userData){
+			 //API success callback
+			 console.log(JSON.stringify(userData));
+		  },function(error){
+			 //API error callback
+			 console.log(JSON.stringify(error));
+		  });
+	   },function(error){
+		  //authenication error callback
+		 console.log(JSON.stringify(error));
+		 });
+}
+
+
 
 function loginFirebaseStatus() {
 	firebase.auth().onAuthStateChanged(function(user) {
