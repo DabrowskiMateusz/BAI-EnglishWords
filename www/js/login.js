@@ -96,35 +96,9 @@ function loginFirebase() {
 		BARDZO WAŻNE JEST POPRAWNE SKONFUGIROWANIE PLUGINU W PLIKU config.xml, oraz poprawne wpisanie klucza "klucz tajny aplikacji", lub "app secret key" w polu w konsoli firebase (zakładka METODA LOGOWANIA)
 		*/
 		
-	//$('#loginfacebook').click(function() {
+	$('#loginfacebook').click(function() {
 	
-		
-	
-	//});
-	
-
-		$('#logout').click(function() {
-
-			firebase.auth().signOut().then(function() {
-			  // Sign-out successful.
-			}, function(error) {
-			  // An error happened.
-			});
-		
-		facebookConnectPlugin.logout(function(){
-                        console.log("LOGOUT SUCCESS");
-						$( "#loggedas" ).html('user logged out');
-                    },function(){
-                        console.log("LOGOUT FAIL");
-                    }); 
-		});	
-}  
-
-
-
-function loginfacebook(){
-	
-facebookConnectPlugin.getLoginStatus(
+		facebookConnectPlugin.getLoginStatus(
             function (status) {
                 console.log("current status: " + JSON.stringify(status));
             },
@@ -157,7 +131,30 @@ facebookConnectPlugin.getLoginStatus(
 		  //authenication error callback
 		 console.log(JSON.stringify(error));
 		 });
-}
+	
+	});
+	
+
+		$('#logout').click(function() {
+
+			firebase.auth().signOut().then(function() {
+			  // Sign-out successful.
+			}, function(error) {
+			  // An error happened.
+			});
+		
+		facebookConnectPlugin.logout(function(){
+                        console.log("LOGOUT SUCCESS");
+						$( "#loggedas" ).html('user logged out');
+                    },function(){
+                        console.log("LOGOUT FAIL");
+                    }); 
+		});	
+}  
+
+
+
+
 
 
 
