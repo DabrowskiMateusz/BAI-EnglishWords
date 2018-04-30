@@ -134,7 +134,7 @@ facebookConnectPlugin.getLoginStatus(
 	 );
 	 
 	facebookConnectPlugin.login(["email"],function(result){
-			onsole.log("logowanie:");
+			console.log("logowanie:");
 			 console.log("RESULT:" + JSON.stringify(result));
 			  console.log("RESULT2:" + JSON.stringify(result.authResponse));
 			  console.log("RESULT3:" + JSON.stringify(result.authResponse.accessToken));
