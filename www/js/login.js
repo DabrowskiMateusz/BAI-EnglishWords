@@ -184,25 +184,8 @@ function loginFirebaseStatus() {
          });
 		 	
 }  
+  
  
-  
-function trySilentLogin() {
-window.plugins.googleplus.trySilentLogin(
-		{
-				 'webClientId' : '244487661018-8rn0cmocvl4p549fsfm3ag6umrgfrfd8.apps.googleusercontent.com',
-				 'offline': true
-		},
-		function (obj) {
-			
-		  document.querySelector("#feedback").innerHTML = "Silent hi, " + obj.displayName + ", " + obj.email;
-		},
-		function (msg) {
-		  document.querySelector("#feedback").innerHTML = "error: " + msg;
-		}
-	);
-}
-  
-  
 window.onerror = function(what, line, file) {
 	alert(what + '; ' + line + '; ' + file);
 };

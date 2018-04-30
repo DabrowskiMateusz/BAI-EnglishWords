@@ -19,12 +19,13 @@
 		<script src="js/translateWords.js"></script>
 		<script src="js/login.js"></script>
 		<script src="cordova.js"></script>
-
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
+		
 	</head>
 	<body onload="init()">
 		
 		<!-- My app main page -->
-		<div data-role="page" id="Homepage">
+	<div data-role="page" id="Homepage">
 	
 		<div data-role="header" id="header">
 			<b> Słówko na dziś: <br> [wordfortoday] </b> <br> <br>
@@ -32,88 +33,78 @@
 					Wybierz swój ulubiony sposób nauki!
 				</div>
 		</div>
-
 		
-		  <div data-role="main" class="ui-content">		
-		  
-		  	<a href="login.html">
-			<div id="button"><b>logowanie </b>
-		  </div>
+		<a href="#logowanie">
+			<div id="button">Logowanie </div>
 		</a>
 		
 		<a href="#translate">
-			<div id="button"><b>Translator </b>
-		  </div>
+			<div id="button"><b>Translator </b> </div>
 		</a>
 		
 		<a href="#flashcards">
-			<div id="button">Fiszki
-		  </div>
+			<div id="button">Fiszki </div>
 		</a>
 		
-				<a href="#gaps">
-			<div id="button">Uzupełnianie zdań
-		  </div>
+		<a href="#gaps">
+			<div id="button">Uzupełnianie zdań </div>
 		</a>
 		
-				<a href="#grammar">
-			<div id="button">Gramatyka
-		  </div>
+		<a href="#grammar">
+			<div id="button">Gramatyka </div>
 		</a>
 		
-				<a href="#wordlists">
-			<div id="button">Listy słówek
-		  </div>
+		<a href="#wordlists">
+			<div id="button">Listy słówek </div>
 		</a>
 		
-		<div id="lineborder"> 
-		</div>
-				<a href="#settings">
-			<div id="button">Ustawienia
-		  </div>
+		<div id="lineborder">  </div>
+		
+		
+		<a href="#settings">
+			<div id="button">Ustawienia </div>
 		</a>
 		
-				<a href="https://github.com/DabrowskiMateusz/BAI-EnglishWords">
-			<div id="button">Oceń aplikację
-		  </div>
+		<a href="https://github.com/DabrowskiMateusz/BAI-EnglishWords">
+			<div id="button">Oceń aplikację </div>
 		</a>
-	
-	</div>
+		
 	</div>
 
 	<div data-role="page" id="translate">
 		<div data-role="header" id="header">
-			<b> Translator </b> <br> <br>
+				<b> Translator </b> <br> <br>
 				<div id="robotofont">
 					Wpisz słowo do przetłumaczenia!
 				</div>
 
-				<div id="wrapper">
-  <div class="container">
-    <div class="col">
-      <textarea class="text-to-translate" placeholder="Text to translate"></textarea>
-      
-      <select class="source-lang">
-        <option value="pl">Polish</option>
-                <option value="en">English</option>
-      </select>
-      <select class="target-lang">
-        <option value="pl">Polish</option>
-            <option value="en">English</option>
-      </select>
+					<div id="wrapper">
+					  <div class="container">
+							<div class="col">
+							  <textarea class="text-to-translate" placeholder="Text to translate"></textarea>
+							  
+							  <select class="source-lang">
+								<option value="pl">Polish</option>
+								<option value="en">English</option>
+							  </select>
+							  
+							  <select class="target-lang">
+								<option value="pl">Polish</option>
+								<option value="en">English</option>
+							  </select>
 
-      <button class="translate">Translate</button>
-      
-    </div>
-    <br>
-    <div class="col">
-      <h2 class="translation-heading">Translation</h2>
-      
-      <p class="target"></p>
+							  <button class="translate">Translate</button>
+							  
+							</div>
+						<br>
+							<div class="col">
+							  <h2 class="translation-heading">Translation</h2>
+							  
+							  <p class="target"></p>
 
-    </div>
-  </div>
-</div>
+							</div>
+					  </div>
+					</div>
 		</div>
 	</div>
 
@@ -125,6 +116,44 @@
 				</div>
 		</div>
 	</div>
+	
+	
+	<div data-role="page" id="settings">
+		<div data-role="header" id="header">
+			<b> Ustawienia </b> <br> <br>
+				<div id="robotofont">
+					Edytuj opcje!
+				</div>
+		</div>
+	</div>
+	
+	
+	<div data-role="page" id="logowanie" >
+		<div data-role="header" id="header">
+			<b> Zaloguj się </b> <br> <br>
+				<div id="robotofont">
+					Możesz również założyć konto używając FB, lub GOOGLE
+				</div>	
+				<div id="robotofont">
+					Zalogowany jako <p id="loggedas"> </p> <br>
+					 <p id="feedback">
+				</div>	
+		</div>
+		<div data-role="main" class="ui-content" >		
+			<div id="registerForm">
+				<input type="text" id="userEmail" placeholder="Email"> 
+				<input type="password" id="userPass" placeholder="Password"> 
+				<button type="button" id="register">Register</button> 
+				<button type="button" id="login">login</button>
+				<button type="button" id="logingoogle">logingoogle</button>
+				<button type="button" id="loginfacebook" >loginfacebook</button>
+				<button type="button" id="logout" >logout</button> 
+
+			</div>
+		</div>
+	</div>
+	
+	
 	<div data-role="page" id="grammar" class="normal_page">
 		<div class="second_header">
 			Gramatyka
@@ -136,19 +165,19 @@
 			<h2><a href="#presentContinous">Present Continous</a></h2>
 			<h2><a href="#presentPerfect">Present Perfect</a></h2>
 		</div>
-		
 	</div>
+	
 	<div data-role="page" class="normal_page" id="flashcards">
 		<div  class="second_header">
 			Fiszki
-	</div>
-	<h3>Kategoria:</h3>
-	<select id="selectlistFlashcards"> 
-	<option>Owoce</option>
-	<option>Zwierzęta</option>
-	<option>Ludzie</option>
-	<option>Świat</option>
-	</select>
+		</div>
+			<h3>Kategoria:</h3>
+			<select id="selectlistFlashcards"> 
+			<option>Owoce</option>
+			<option>Zwierzęta</option>
+			<option>Ludzie</option>
+			<option>Świat</option>
+			</select>
 	<div id="card" onclick="flashcardClick()"> 
 		<div class="front"> 
 			<div id="frontContent" ></div>
@@ -156,7 +185,7 @@
 		<div class="back">
 			<div id="backContent"></div>
 		</div>
-</div>
+	</div>
 	</div>
 	<div data-role="page" class="normal_page" id="presentSimple">
 		<div class="second_header">
@@ -521,9 +550,8 @@
 	<div data-role="page" class="normal_page" id="wordlists">
 		<div class="second_header">
 			Lista słówek 
-
 		</div>
-				 <div data-role="main" class="ui-content">
+			<div data-role="main" class="ui-content">
 						<h3>Kategoria:</h3>
 				  <select id="selectlist"> 
 					<option>Owoce</option>
@@ -551,7 +579,6 @@
 				
 				<input type="button" onclick="showWordsList()" value="Pokaż słowa"> </input>
 				
-
 				<table id="wordstable"  class="ui-responsive table-stroke">
 				  <tr>
 					<th>Polskie</th>
@@ -560,15 +587,8 @@
 				  </tr>
 					
 				</table>	
-	</div>
-	<div data-role="page" id="settings">
-		<div data-role="header" id="header">
-			<b> Ustawienia </b> <br> <br>
-				<div id="robotofont">
-					Edytuj opcje!
-				</div>
 		</div>
-	</div>
+	
 
 	
 
