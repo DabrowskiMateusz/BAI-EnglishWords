@@ -133,10 +133,11 @@ facebookConnectPlugin.getLoginStatus(
             }
 	 );
 	 
-	facebookConnectPlugin.login(["public_profile","email"],function(result){
-			 console.log("RESULT:" + result);
-			  console.log("RESULT2:" + result.authResponse);
-			  console.log("RESULT3:" + result.authResponse.accessToken);
+	facebookConnectPlugin.login(["email"],function(result){
+			onsole.log("logowanie:");
+			 console.log("RESULT:" + JSON.stringify(result));
+			  console.log("RESULT2:" + JSON.stringify(result.authResponse));
+			  console.log("RESULT3:" + JSON.stringify(result.authResponse.accessToken));
 			  
 				firebase.auth().signInWithCredential(firebase.auth.FacebookAuthProvider.credential(result.authResponse.accessToken))
 					.then((success) => {
