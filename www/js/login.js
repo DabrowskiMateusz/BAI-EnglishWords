@@ -17,8 +17,6 @@ function loginFirebase() {
 					console.log('everything went fine');
 					console.log('user object:' + user);
 					
-					pushToDb(email.val(), email.val());
-
 					//you can save the user data here.
 				}).catch(function(error) {
 					console.log('there was an error');
