@@ -1,4 +1,5 @@
 
+var LoggedUser = "Niezalogowany";
 
 // "duża" funkcja w której używamy poszczególnych id przypisanych do przycisków do wywołania danej funkcji..
 function loginFirebase() {
@@ -89,7 +90,7 @@ function loginFirebase() {
 	});
 	
 	
-		/* logowanie google: używamy pluginu: 
+		/* logowanie facebook: używamy pluginu: 
 		cordova-plugin-facebook4 zgodnie z informacjami zawartymi w config.xml
 		dzięki temu pluginowi pobieramy idToken którego następnie używamy do zalogowania poprzez funckję 
 		signInWithCredential - UWAGA TA FUNKCJA STWORZY KONTO I ZALOGUJE UŻYTKOWNIKA ALE NIE PRZYPISUJE HASŁA DO KONTA, LOGOWANIE ODBYWA SIĘ BEZ HASŁA PRZEZ TEN TOKEN.
@@ -145,24 +146,19 @@ function loginFirebase() {
 		
 		facebookConnectPlugin.logout(function(){
                         console.log("LOGOUT SUCCESS");
-						$( "#loggedas" ).html('user logged out');
+						$( "#loggedas" ).html('Niezalogowany');
                     },function(){
                         console.log("LOGOUT FAIL");
                     }); 
 		});	
 }  
 
-
-
-
-
-
-
 function loginFirebaseStatus() {
 	firebase.auth().onAuthStateChanged(function(user) {
 		  if (user) {
 			// User is signed in.
 			var displayName = user.displayName;
+			LoggedUser = user.email;
 			var email = user.email;
 			var emailVerified = user.emailVerified;
 			var photoURL = user.photoURL;
@@ -175,7 +171,7 @@ function loginFirebaseStatus() {
 				$( "#loggedas" ).html(email);
 				
 		  } else {
-			$( "#loggedas" ).html('user logged out');
+			$( "#loggedas" ).html(LoggedUser);
 		  }
 			});
 			
