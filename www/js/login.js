@@ -1,5 +1,6 @@
 
 var LoggedUser = "Niezalogowany";
+var LoggedUserName = "Niezalogowany";
 
 // "duża" funkcja w której używamy poszczególnych id przypisanych do przycisków do wywołania danej funkcji..
 function loginFirebase() {
@@ -7,13 +8,17 @@ function loginFirebase() {
 			
 			// validacja email i passoword, ponieważ muszą być one "valid" by przekazać je do funkcji poniższej.
 			var email = $('#userEmail');    
-			var pass = $('#userPass');      
+			var pass = $('#userPass');   
+			var userName = $('#userName');  			
 
 						if(email.val() && pass.val()){
 			// założenie konta w firebase przy wykożystaniu loginu i hasła
 				firebase.auth().createUserWithEmailAndPassword(email.val(), pass.val()).then(function(user){
 					console.log('everything went fine');
 					console.log('user object:' + user);
+					
+					pushToDb(email.val(), email.val());
+
 					//you can save the user data here.
 				}).catch(function(error) {
 					console.log('there was an error');
