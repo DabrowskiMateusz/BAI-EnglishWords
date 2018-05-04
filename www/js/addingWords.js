@@ -25,8 +25,8 @@ function addNewWord() {
 		polish: $('#textarea1').val(),
 		english:  $('#textarea2').val()
 	  }
-	
-	var path = createPath([allUsers, wordLists, $('#selectlist').val()]);
+	var user = firebase.auth().currentUser.email;
+	var path = createPath([user, wordLists, $('#selectlist').val()]);
 	pushToDb(path, fieldsValues);
 
 	$('#textarea1').val("");
@@ -36,16 +36,23 @@ function addNewWord() {
 }
 
 function deleteWord(key){
-	var path = createPath([allUsers, wordLists, $('#selectlistShow').val(), key]);
+	var user = firebase.auth().currentUser.email;
+	var path = createPath([user, wordLists, $('#selectlistShow').val(), key]);
 	removeFromDb(path);
 	showWordsList();
 }
 			
 function showWordsList() {
 	$(".wordsrow").remove();
-	var path = createPath([allUsers, wordLists, $('#selectlistShow').val()]);
+	var user = firebase.auth().currentUser.email;
+	var pathForUser = createPath([user, wordLists, $('#selectlistShow').val()]);
+	appendWordsForPath(pathForUser);
+	var pathForAll = createPath([allUsers, wordLists, $('#selectlistShow').val()]);
+	appendWordsForPath(pathForAll);	
+}
+
+function appendWordsForPath(path){
 	var refWordlists = getFromDb(path);
-	
 	refWordlists.on("value", function(snapshot) {
 				snapshot.forEach(element => {
 					$( "#wordstable" ).append("<tr class =\"wordsrow\"> <td>" + element.val().polish + "</td> <td>"
