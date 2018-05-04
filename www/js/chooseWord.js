@@ -14,8 +14,8 @@ function loadNextWordToChoose(){
     if($("#nextWordButton").text()=='Sprawdź'){
         var selected =  $("#selectWordCheckList :radio:checked").prop("id");
         var labelVal = $("label[for='"+ selected +"']").html();
-        var user = firebase.auth().currentUser.email;
-        var path = createPath([user, "results", "choosing_words"]);
+        var user = firebase.auth().currentUser;
+        var path = createPath([normalizeEmail(user.email), "results", "choosing_words"]);
 
         if(labelVal == currentValues[0][1]){
             $("#chooseWordResult").html("Dobra odpowiedź!");
@@ -23,14 +23,18 @@ function loadNextWordToChoose(){
                 word: currentValues[0][0],
                 answer: true
             }
-	        pushToDb(path, fieldsValues);
+            if(user != null){
+	            pushToDb(path, fieldsValues);
+            }
         }
         else{
             var fieldsValues = {
                 word: currentValues[0][0],
                 answer: false
             }
-            pushToDb(path, fieldsValues);
+            if(user != null){
+	            pushToDb(path, fieldsValues);
+            }
             $("#chooseWordResult").html("Zła odpowiedź, prawidłowe tłumaczenie to: " + currentValues[0][1]);
         }
 
