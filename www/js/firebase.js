@@ -38,3 +38,7 @@ function getFromDb(path){
 function removeFromDb(path){
 	firebase.database().ref(path).remove();
 }
+
+function normalizeEmail(email){
+	return email.replace(/[^\w]/gi, '')
+}
