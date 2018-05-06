@@ -5,19 +5,11 @@ var LoggedUserName = "Niezalogowany";
 
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
-    console.log(navigator.notification);
-	
-	function onPrompt(results) {
-    alert("You selected button number " + results.buttonIndex + " and entered " + results.input1);
-}
-
-	navigator.notification.prompt(
-					'Please enter your name',  // message
-					onPrompt,                  // callback to invoke
-					'Registration',            // title
-					['Ok','Exit'],             // buttonLabels
-					'Jane Doe'                 // defaultText
-					);
+		 cordova.plugins.notification.local.schedule({
+			title: 'My first notification',
+			text: 'Thats pretty easy...',
+			foreground: true
+		});
 }
 
 
@@ -191,6 +183,7 @@ function loginFirebaseStatus() {
 				console.log(email);
 				console.log(user.emailVerified);
 				$( "#loggedas" ).html(email);
+				$( "#loggedashome" ).html(LoggedUser);
 				
 		  } else {
 			$( "#loggedas" ).html(LoggedUser);
