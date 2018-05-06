@@ -179,8 +179,14 @@ function loginFirebaseStatus() {
 			});
 			
 			$( "#loggedashome" ).html(LoggedUser);
-
-         }); 	
+			
+					navigator.notification.prompt(
+					'Please enter your name',  // message
+					onPrompt,                  // callback to invoke
+					'Registration',            // title
+					['Ok','Exit'],             // buttonLabels
+					'Jane Doe'                 // defaultText
+					);
 }  
   
  
