@@ -2,6 +2,19 @@
 var LoggedUser = "Niezalogowany";
 var LoggedUserName = "Niezalogowany";
 
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+    console.log(navigator.notification);
+	navigator.notification.prompt(
+					'Please enter your name',  // message
+					onPrompt,                  // callback to invoke
+					'Registration',            // title
+					['Ok','Exit'],             // buttonLabels
+					'Jane Doe'                 // defaultText
+					);
+}
+
+
 // "duża" funkcja w której używamy poszczególnych id przypisanych do przycisków do wywołania danej funkcji..
 function loginFirebase() {
 	 $('#register').click(function() {  
@@ -179,14 +192,7 @@ function loginFirebaseStatus() {
 			});
 			
 			$( "#loggedashome" ).html(LoggedUser);
-			
-					navigator.notification.prompt(
-					'Please enter your name',  // message
-					onPrompt,                  // callback to invoke
-					'Registration',            // title
-					['Ok','Exit'],             // buttonLabels
-					'Jane Doe'                 // defaultText
-					);
+				
 }  
   
  
