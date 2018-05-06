@@ -44,8 +44,10 @@
 	<plugin name="cordova-plugin-browsertab" />
 	<plugin name="cordova-plugin-inappbrowser" />
 	<plugin name="cordova-plugin-dialogs" />
+	<plugin name="cordova-plugin-local-notification" />
 	
-	<gap:plugin name="de.appplant.cordova.plugin.local-notification" />
+	
+
 
 
 
