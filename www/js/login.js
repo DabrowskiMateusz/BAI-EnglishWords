@@ -3,16 +3,6 @@ var LoggedUser = "Niezalogowany";
 var LoggedUserName = "Niezalogowany";
 
 
-document.addEventListener("deviceready", onDeviceReady, false);
-function onDeviceReady() {
-		 cordova.plugins.notification.local.schedule({
-			title: 'Słówko na dziś:',
-			text: 'Thats pretty easy...',
-			foreground: true
-		});
-}
-
-
 // "duża" funkcja w której używamy poszczególnych id przypisanych do przycisków do wywołania danej funkcji..
 function loginFirebase() {
 	 $('#register').click(function() {  
