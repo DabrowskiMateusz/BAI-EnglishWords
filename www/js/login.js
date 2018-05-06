@@ -178,10 +178,9 @@ function loginFirebaseStatus() {
 		  }
 			});
 			
-			facebookConnectPlugin.getLoginStatus(function (status) {
-                console.log("current status: " + JSON.stringify(status));
-         });
-		 	
+			$( "#loggedashome" ).html(LoggedUser);
+
+         }); 	
 }  
   
  
