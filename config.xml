@@ -43,6 +43,7 @@
 	<plugin name="cordova-universal-links-plugin" />
 	<plugin name="cordova-plugin-browsertab" />
 	<plugin name="cordova-plugin-inappbrowser" />
+	
 	<plugin name="cordova-plugin-dialogs" />
 	<plugin name="de.appplant.cordova.plugin.local-notification" spec="~0.8.5" />
 

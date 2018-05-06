@@ -6,7 +6,7 @@ var LoggedUserName = "Niezalogowany";
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
 		 cordova.plugins.notification.local.schedule({
-			title: 'My first notification',
+			title: 'Słówko na dziś:',
 			text: 'Thats pretty easy...',
 			foreground: true
 		});
