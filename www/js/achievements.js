@@ -1,16 +1,19 @@
 
 function loadAnswers() {
 	$("#Answers").remove();
-	//var user = firebase.auth().currentUser;
-	var user = 'grawerjkgmailcom';
+	var user = firebase.auth().currentUser;
+	//var user = 'grawerjkgmailcom';
 	if(user == null){
 		return;
 	}
-	var path = createPath([user, "results", "choosing_words"]);
+	var path = createPath([normalizeEmail(user.email), "results", "choosing_words"]);
 	appendAnswers(path);
+	
 }
 
+
 function appendAnswers(path){
+
 
 	var correctAnswers = 0;
 	var inCorrectAnswers = 0;
@@ -45,7 +48,7 @@ function appendAnswers(path){
 					}
 				}
 				
-				$( "#correctAnswersPercentage" ).html("Procent poprawnych: " + correctAnswersPercentage);
+				$( "#correctAnswersPercentage" ).html(correctAnswersPercentage + " %");
 				$( "#correctAnswers" ).html(correctAnswers);
 				$( "#inCorrectAnswers" ).html(inCorrectAnswers);
 				$( "#allAnswers" ).html(allAnswers);

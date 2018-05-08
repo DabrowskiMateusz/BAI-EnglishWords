@@ -86,13 +86,17 @@ a{
 #myProgress {
 	color: white;
 	text-align: center;
+	text-align: center;
 	display: inline
     width: 100%;
     background-color: grey;
+	vertical-align: middle;
 }
 
 #myProgress p {
    display: inline;
+   text-align: center;
+    vertical-align: middle;
 }
 
 #progressBar {
