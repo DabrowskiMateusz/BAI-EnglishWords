@@ -70,5 +70,9 @@ $(function() {
 translate(translationObj);
       
     })
+
+
     
 });
+
+  

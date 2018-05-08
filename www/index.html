@@ -84,16 +84,25 @@
 				<div id="wrapper">
   <div class="container">
     <div class="col">
-      <textarea class="text-to-translate" placeholder="Text to translate"></textarea>
+      <textarea rows="4" cols="80" class="text-to-translate" placeholder="Text to translate"></textarea>
       
-      <select class="source-lang">
-        <option value="pl">Polish</option>
-                <option value="en">English</option>
-      </select>
-      <select class="target-lang">
-        <option value="pl">Polish</option>
-            <option value="en">English</option>
-      </select>
+      
+	<select id="source-lang1" class="source-lang">
+		<option value="pl">Polish</option>
+	</select>
+      	
+      
+
+      <button onclick="example()">zmień</button>
+
+		<select id="target-lang1" class="target-lang">
+
+        	<option selected="selected" value="en">English</option>
+
+      	</select>      
+
+      
+
 
       <button class="translate">Translate</button>
       
