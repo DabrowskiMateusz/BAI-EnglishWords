@@ -32,7 +32,7 @@ function appendAnswers(path){
 				});
 				console.log("correct:" + correctAnswers + "incorrect:" + inCorrectAnswers + "all:" + allAnswers);
 				
-				var correctAnswersPercentage = correctAnswers / allAnswers;
+				var correctAnswersPercentage = (correctAnswers / allAnswers)*100;
 				
 				console.log("correctAnswersPercentage:" + correctAnswersPercentage);
 				
@@ -47,8 +47,7 @@ function appendAnswers(path){
 					}
 				}
 		
-				
-				
+
 			  } , function (errorObject) {
 				console.log("The read failed: " + errorObject.code);
 			  });	    
