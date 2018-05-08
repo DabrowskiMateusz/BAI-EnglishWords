@@ -82,11 +82,20 @@ a{
 }
 
 
+
 #myProgress {
+	color: white;
+	text-align: center;
+	display: inline
     width: 100%;
     background-color: grey;
 }
-#myBar {
+
+#myProgress p {
+   display: inline;
+}
+
+#progressBar {
     width: 1%;
     height: 30px;
     background-color: green;
