@@ -1,34 +1,22 @@
 
 function loadAnswers() {
 	$("#Answers").remove();
-	var user = firebase.auth().currentUser;
+	//var user = firebase.auth().currentUser;
+	var user = 'grawerjkgmailcom';
 	if(user == null){
 		return;
 	}
-	var path = createPath([normalizeEmail(user.email), "results", "choosing_words"]);
+	var path = createPath([user, "results", "choosing_words"]);
 	appendAnswers(path);
 }
 
 function appendAnswers(path){
-	
-		var elem = document.getElementById("myBar"); 
-		var width = 1;
-		var id = setInterval(frame, 10);
-		function frame() {
-			if (width >= 100) {
-				clearInterval(id);
-			} else {
-				width++; 
-				elem.style.width = width + '%'; 
-			}
-		}
-	
-
-				
+		
 
 	var correctAnswers = 0;
 	var inCorrectAnswers = 0;
 	var allAnswers = 0;
+	var correctAnswersPercentage = 0;
 	var refAnswers = getFromDb(path);
 	refAnswers.on("value", function(snapshot) {
 				snapshot.forEach(element => {
@@ -43,7 +31,22 @@ function appendAnswers(path){
 					allAnswers += 1;
 				});
 				console.log("correct:" + correctAnswers + "incorrect:" + inCorrectAnswers + "all:" + allAnswers);
-							
+				
+				var correctAnswersPercentage = correctAnswers / allAnswers;
+				
+				console.log("correctAnswersPercentage:" + correctAnswersPercentage);
+				
+				var elem = document.getElementById("myBar"); 
+				var width = 0;
+				var id = setInterval(frame, 10);
+				function frame() {
+					if (width >= 100) {
+						clearInterval(id);
+					} else {
+						elem.style.width = correctAnswersPercentage + '%'; 
+					}
+				}
+		
 				
 				
 			  } , function (errorObject) {
