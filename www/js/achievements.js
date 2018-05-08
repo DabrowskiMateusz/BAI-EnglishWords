@@ -1,6 +1,5 @@
 
 function loadAnswers() {
-	$("#Answers").remove();
 	var user = firebase.auth().currentUser;
 	//var user = 'grawerjkgmailcom';
 	if(user == null){
@@ -47,6 +46,12 @@ function appendAnswers(path){
 						elem.style.width = correctAnswersPercentage + '%'; 
 					}
 				}
+				
+				if (correctAnswersPercentage <= 50){
+						$( "#noticeProgress" ).html('Musisz jeszcze popracować!');
+					} else {
+						$( "#noticeProgress" ).html('Świetnie Ci idzie!');
+					}
 				
 				$( "#correctAnswersPercentage" ).html(correctAnswersPercentage + " %");
 				$( "#correctAnswers" ).html(correctAnswers);
