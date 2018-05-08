@@ -75,10 +75,23 @@ translate(translationObj);
     
 });
 
-  function test(){
-
-document.getElementsByName('source-lang1')[0].options[0].innerHTML = "English";
-
-document.getElementsByName('target-lang1')[0].options[0].innerHTML = "Polish";
+var isEnglish = 0;
+function swapLanguage(){
+	if (isEnglish == 0){
+		$("#sourcelang").val('en').selectmenu('refresh',true);
+		$("#targetlang").val('pl').selectmenu('refresh',true);
+		isEnglish = 1;
+	} else {
+			$("#sourcelang").val('pl').selectmenu('refresh',true);
+			$("#targetlang").val('en').selectmenu('refresh',true);
+			isEnglish = 0;
+	}
+		
 
 }
+
+
+
+
+
+

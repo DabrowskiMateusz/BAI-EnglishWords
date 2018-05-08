@@ -74,44 +74,44 @@
 	</div>
 	</div>
 
-	<div data-role="page" id="translate">
-		<div data-role="header" id="header">
-			<b> Translator </b> <br> <br>
-				<div id="robotofont">
-					Wpisz słowo do przetłumaczenia!
-				</div>
-
+	<div data-role="page" id="translate" class="normal_page">
+		<div class="second_header">
+			Translator
+		</div>
+		
+		<div data-role="main" class="ui-content">
+		
 				<div id="wrapper">
   <div class="container">
     <div class="col">
       <textarea rows="4" cols="80" class="text-to-translate" placeholder="Text to translate"></textarea>
       
       
-	<select name="source-lang1" class="source-lang">
-		<option  value="pl">Polish</option>
+	<select name="source-lang1" class="source-lang" id="sourcelang" >
+	
+		<option  value="pl">Polski</option>
+		<option  value="en">Angielski</option>
 		
 	</select>
       	
       
 
-      <button onclick="test()">zmień</button>
+      <button onclick="swapLanguage()">zmień</button>
 
-		<select name="target-lang1" class="target-lang">
+		<select name="target-lang1" class="target-lang" id="targetlang">
 
-        	<option  value="en">English</option>
-        	
+			<option  value="en">Angielski</option>
+			<option  value="pl">Polski</option>
 
       	</select>      
 
-      
-
-
-      <button class="translate">Translate</button>
+   
+      <button class="translate">Tłumacz</button>
       
     </div>
     <br>
     <div class="col">
-      <h2 class="translation-heading">Translation</h2>
+      <h2 class="translation-heading">Tłumaczenie</h2>
 
       <textarea rows="4" cols="80" class="target" placeholder="Text after translation"></textarea>
       
@@ -120,8 +120,9 @@
     </div>
   </div>
 </div>
+</div>
 		</div>
-	</div>
+	
 
 	<div data-role="page" id="gaps">
 		<div data-role="header" id="header">
