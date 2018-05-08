@@ -5,7 +5,7 @@ function loadAnsewers() {
 	if(user == null){
 		return;
 	}
-	var path = createPath([normalizeEmail(user.email), results, choosing_words]);
+	var path = createPath([normalizeEmail(user.email), "results", "choosing_words"]);
 	appendAnsewers(path);
 }
 
