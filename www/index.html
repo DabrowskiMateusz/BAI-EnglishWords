@@ -87,17 +87,19 @@
       <textarea rows="4" cols="80" class="text-to-translate" placeholder="Text to translate"></textarea>
       
       
-	<select id="source-lang1" class="source-lang">
-		<option value="pl">Polish</option>
+	<select name="source-lang1" class="source-lang">
+		<option  value="pl">Polish</option>
+		
 	</select>
       	
       
 
-      <button onclick="example()">zmień</button>
+      <button onclick="test()">zmień</button>
 
-		<select id="target-lang1" class="target-lang">
+		<select name="target-lang1" class="target-lang">
 
-        	<option selected="selected" value="en">English</option>
+        	<option  value="en">English</option>
+        	
 
       	</select>      
 
@@ -110,8 +112,10 @@
     <br>
     <div class="col">
       <h2 class="translation-heading">Translation</h2>
+
+      <textarea rows="4" cols="80" class="target" placeholder="Text after translation"></textarea>
       
-      <p class="target"></p>
+      
 
     </div>
   </div>

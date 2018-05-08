@@ -75,4 +75,10 @@ translate(translationObj);
     
 });
 
-  
+  function test(){
+
+document.getElementsByName('source-lang1')[0].options[0].innerHTML = "English";
+
+document.getElementsByName('target-lang1')[0].options[0].innerHTML = "Polish";
+
+}
