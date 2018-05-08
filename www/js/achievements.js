@@ -12,15 +12,8 @@ function loadAnswers() {
 
 function createProgressBar(correctAnswersPercentage){
 	var elem = document.getElementById("progressBar"); 
-				var width = 0;
-				var id = setInterval(frame, 10);
-				function frame() {
-					if (width >= 100) {
-						
-					} else {
-						elem.style.width = correctAnswersPercentage + '%'; 
-					}
-				}
+	elem.style.width = correctAnswersPercentage + '%'; 
+				
 }
 
 
@@ -32,7 +25,12 @@ function appendAnswers(path){
 	var allAnswers = 0;
 	var correctAnswersPercentage = 0;
 	var refAnswers = getFromDb(path);
-	refAnswers.once("value", function(snapshot) {
+	refAnswers.on("value", function(snapshot) {
+		correctAnswers = 0;
+		inCorrectAnswers = 0;
+		allAnswers = 0;
+		correctAnswersPercentage = 0;
+	
 				snapshot.forEach(element => {
 					
 				if(element.val().answer == true){
