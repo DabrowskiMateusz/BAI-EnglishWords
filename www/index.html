@@ -21,6 +21,8 @@
 		<script src="cordova.js"></script>
 		<script src="https://apis.google.com/js/platform.js" async defer></script>
 		<script src="js/chooseWord.js"></script>
+		<script src="js/achievements.js"></script>
+		
 		
 	</head>
 	<body onload="init()">
@@ -62,6 +64,10 @@
 		
 		<a href="#wordlists">
 			<div id="button">Listy słówek </div>
+		</a>
+		
+		<a href="#achievements">
+			<div id="button">Postępy w nauce </div>
 		</a>
 		
 		<div id="lineborder">  </div>
@@ -162,6 +168,27 @@
 				<button type="button" id="logout" >Logout</button> 
 
 			</div>
+		</div>
+	</div>
+	
+	<div data-role="page" id="achievements" class="normal_page">
+		<div data-role="header" id="header">
+			<b> Sprawdź swoje postępy w nauce </b> <br> <br>
+	
+		</div>
+		<div data-role="main" class="ui-content" >		
+			<a href="#" onclick="loadAnsewers()" data-role="button" id="loadAnsewersButon">Load Ansewers</a> 
+					Postęp <p id="ansewers"> </p> <br>
+					
+					<table id="ansewerstable"  class="ui-responsive table-stroke">
+				  <tr>
+					<th>Polskie</th>
+					<th>Angielskie</th>
+					<th>Usunięcie</th>
+				  </tr>
+					
+				</table>	
+				
 		</div>
 	</div>
 	
