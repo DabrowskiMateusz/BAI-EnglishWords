@@ -9,7 +9,7 @@
 		<script src="js/jquery-2.1.4.min.js"></script>
 		<script src="js/jquery.mobile-1.4.5.min.js"></script>
 		<link rel="stylesheet" href="css/themes/style.css" />
-		<link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
+		
   
 		<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
 		<script src="js/jquery.flip.min.js"></script>
@@ -22,6 +22,7 @@
 		<script src="https://apis.google.com/js/platform.js" async defer></script>
 		<script src="js/chooseWord.js"></script>
 		<script src="js/achievements.js"></script>
+		<script src="js/wordCompletion.js"></script>
 
 		
 	</head>
@@ -138,9 +139,30 @@
 	<div data-role="page" id="gaps">
 		<div data-role="header" id="header">
 			<b> Uzupełnij zdania </b> <br> <br>
-				<div id="robotofont">
+
+
+				
+					 
 					Wstaw wyrazy w puste pola!
-				</div>
+
+
+					<p>1. We d.......... our house about two weeks before Christmas, and take the decorations down 12 days after Christmas Day.</p>
+					<input id="firstCompletion" placeholder="Wpisz poprawne słowo" type="text" > 
+
+					<p>2. My mother goes to the post office about a month before Christmas to s........... hundreds of cards to her friends and family.</p>
+					<input id="secondCompletion" placeholder="Wpisz poprawne słowo" type="text" >
+
+					<p>3. I always h........... a party for my birthday. This year it's a special party because I'm 15!</p>
+					<input id="thirdCompletion" placeholder="Wpisz poprawne słowo" type="text">
+
+					<p>4. It's Bonfire Night! I can't wait to w.......... the fireworks.</p>
+					<input id="fourCompletion" placeholder="Wpisz poprawne słowo" type="text">
+
+					<p>5. Our local fiesta is this w........... . All the girls wear a traditional costume - a blue skirt, a white blouse and a blue and white scarf.</p>
+					<input id="fiveCompletion" placeholder="Wpisz poprawne słowo" type="text">
+
+					<button onclick="checkValue()">Try IT</button>
+				
 		</div>
 	</div>
 	
