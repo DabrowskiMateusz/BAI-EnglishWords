@@ -3,25 +3,49 @@ function onDeviceReady() {
 	
 	
 }
- $.fn.nval = function() {
-   return Number(this.val())
-};
 
+var wordPair = [];
+
+function loadNextWordPairNotification(){
+    wordPair = getRandomWordPairNotification();
+}
+
+function getRandomWordPairNotification(){
+    var category = $('#selectlistNotification').val();
+    var path = createPath([allUsers, wordLists, category]);
+	var refWordlists = getFromDb(path);
+	var pairs = [];
+	refWordlists.on("value", function(snapshot) {
+				snapshot.forEach(element => {
+                    pairs.push([element.val().polish, element.val().english]);
+				});
+			  }, function (errorObject) {
+				console.log("The read failed: " + errorObject.code);
+			  });
+
+    var numberOfWords = pairs.length;
+    var wordPairNumber = Math.floor((Math.random() * numberOfWords));
+    var selectedPair = pairs[wordPairNumber];
+    return selectedPair;
+}
+	
+
+function notification() {
+	
+	loadNextWordPairNotification();
+	
+	console.log(wordPair[0] + " " +  wordPair[1]);
 	var d = new Date();
 	var y = d.getFullYear();
 	var m = d.getMonth();
 	var today = d.getDate();
 	var year = y; 
 	var month = m;  
-	var day =  today;
+	var day =  today; 
 	
-	var now             = new Date().getTime(),
-    _5_sec_from_now = new Date(now + 5*1000);
-	
-function notification() {
 	var hours = ($( "#selectedHour" ).val());
 	var howoften =  (($( "#selectedHowOften" ).val()) * 60);
-	var date = new Date(year, month, day, hours);
+	var date = new Date(year, month, day, hours).getTime();
 	var dateNow = new Date().getTime();
 		console.log(year);
 		console.log(month);
@@ -32,12 +56,12 @@ function notification() {
 		console.log(dateNow);
 		cordova.plugins.notification.local.schedule({
 		id: 1,
-		title: "Message Title",
-		text: "Message Text",
-		at: _5_sec_from_now, // firstAt and at properties must be an IETF-compliant RFC 2822 timestamp
+		title: "Słowo Polskie" + wordPair[0],
+		text: "Tłumaczenie" + wordPair[1],
+		at: dateNow, // firstAt and at properties must be an IETF-compliant RFC 2822 timestamp
 		every: howoften, // this also could be minutes i.e. 25 (int)
-		data: { meetingId:"123#fg8" }
-});
+	
+	});
 
 
 }
