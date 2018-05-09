@@ -29,9 +29,11 @@ function getRandomWordPairNotification(){
     return selectedPair;
 }
 
+var imageNotificationUrl = '';
+
 function getImageNotification(){
 var keyword = wordPair[1];
-var ImageNotificationUrl = ' ';
+
 
     $(document).ready(function(){
 
@@ -47,7 +49,7 @@ var ImageNotificationUrl = ' ';
         $.each( data.photos.photo, function( i, item ) {
           var url = 'https://farm' + item.farm + '.staticflickr.com/' + item.server + '/' + item.id + '_' + item.secret + '.jpg';
 		   console.log(url);
-		   ImageNotificationUrl = url;
+		  imageNotificationUrl = url;
        });
 	   
        });
@@ -82,15 +84,15 @@ function notification() {
 		console.log(hours);
 		console.log(howoften);
 		console.log(dateNow);
-		cordova.plugins.notification.local.schedule({
-		id: 1,
-		title: "Słówko Polskie: " + wordPair[0],
-		text: "Tłumaczenie: " + wordPair[1],
-		at: dateNow, // firstAt and at properties must be an IETF-compliant RFC 2822 timestamp
-		every: howoften, // this also could be minutes i.e. 25 (int)
-		icon: ImageNotificationUrl,
+		
+			cordova.plugins.notification.local.schedule({
+			id: 1,
+			title: "Słówko Polskie: " + wordPair[0],
+			text: "Tłumaczenie: " + wordPair[1],
+			at: dateNow, // firstAt and at properties must be an IETF-compliant RFC 2822 timestamp
+			every: howoften, // this also could be minutes i.e. 25 (int)
+			icon: imageNotificationUrl,
+		});
 	
-	});
-
 
 }
