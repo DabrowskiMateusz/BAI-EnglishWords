@@ -30,12 +30,14 @@ function notification() {
 		console.log(howoften);
 		console.log(dateNow);
 		cordova.plugins.notification.local.schedule({
-		id: 1,
-		title: "Message Title",
-		message: "Message Text",
-		firstAt: date, // firstAt and at properties must be an IETF-compliant RFC 2822 timestamp
-		every: howoften, // this also could be minutes i.e. 25 (int)
-		data: { meetingId:"123#fg8" }
+			id: 1,
+			title: "Production Jour fixe",
+			text: "Duration 1h",
+			firstAt: monday_9_am,
+			every: "week",
+			sound: "file://sounds/reminder.mp3",
+			icon: "http://icons.com/?cal_id=1",
+			data: { meetingId:"123#fg8" }
 });
 
 
