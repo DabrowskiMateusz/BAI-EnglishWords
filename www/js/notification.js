@@ -14,9 +14,9 @@ function notification() {
     cordova.plugins.notification.local.schedule({
         title: 'Słówko na dziś:',
         text: 'Thats pretty easy...',
-        foreground: true
-		trigger: { every: 'day', count: 5 }
-		firstAt
+        foreground: true,
+		trigger: { every: 'day', count: 5 },
+
     });
 
 }
