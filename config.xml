@@ -9,7 +9,6 @@
 	</author>
 	<engine name="android" />
 		S. Klejdysz
-		<plugin name="cordova-plugin-whitelist"/>
 		<access origin="*" />
 		<allow-navigation href="*" />
 		<allow-intent href="*" />
@@ -44,7 +43,7 @@
 	<plugin name="cordova-plugin-browsertab" />
 	<plugin name="cordova-plugin-inappbrowser" />
     <plugin name="cordova-plugin-dialogs" />
-    <plugin name="cordova-plugin-local-notification" source="git" />
+    <plugin name="cordova-plugin-local-notification" source="npm" />
 
 	
 	<universal-links>
