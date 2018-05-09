@@ -179,9 +179,9 @@ function loginFirebaseStatus() {
 		  }
 			});
 			
-			facebookConnectPlugin.getLoginStatus(function (status) {
-                console.log("current status: " + JSON.stringify(status));
-         });
+			//	 facebookConnectPlugin.getLoginStatus(function (status) {
+			//    console.log("current status: " + JSON.stringify(status));
+			//   });
 		 	
 }  
   
