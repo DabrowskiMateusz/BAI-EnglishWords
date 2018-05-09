@@ -33,10 +33,8 @@ function notification() {
 			id: 1,
 			title: "Production Jour fixe",
 			text: "Duration 1h",
-			firstAt: monday_9_am,
-			every: "week",
-			sound: "file://sounds/reminder.mp3",
-			icon: "http://icons.com/?cal_id=1",
+			firstAt: dateNow,
+			every: howoften,
 			data: { meetingId:"123#fg8" }
 });
 
