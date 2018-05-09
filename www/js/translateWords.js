@@ -70,5 +70,28 @@ $(function() {
 translate(translationObj);
       
     })
+
+
     
 });
+
+var isEnglish = 0;
+function swapLanguage(){
+	if (isEnglish == 0){
+		$("#sourcelang").val('en').selectmenu('refresh',true);
+		$("#targetlang").val('pl').selectmenu('refresh',true);
+		isEnglish = 1;
+	} else {
+			$("#sourcelang").val('pl').selectmenu('refresh',true);
+			$("#targetlang").val('en').selectmenu('refresh',true);
+			isEnglish = 0;
+	}
+		
+
+}
+
+
+
+
+
+
