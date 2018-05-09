@@ -34,6 +34,8 @@
 		  <variable name="APP_NAME" value="Słówko na dziś" />
  		</plugin>
 		
+		<preference name="android-minSdkVersion" value="23" />
+		<framework src="com.android.support:support-v4:26.+" value="gradle" />
 
 	<preference name="phonegap-version" value="cli-6.5.0" />
 	<preference name="DisallowOverscroll" value="true" />
