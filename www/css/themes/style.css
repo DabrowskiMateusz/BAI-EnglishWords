@@ -8,8 +8,9 @@
 	outline:0;
 }
 .ui-content { 
- 	margin-right: -12px;
-    margin-left: -12px;
+	color: white;
+ 	margin-right: 35px;
+    margin-left: 35px;
 }
 
 a{
@@ -70,6 +71,7 @@ a{
 }
 
 .normal_page {
+	color: black;
 	background: rgb(255, 255, 241);
 }
 

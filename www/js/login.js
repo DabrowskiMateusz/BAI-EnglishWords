@@ -180,8 +180,14 @@ function loginFirebaseStatus() {
 		  }
 			});
 			
+
 			$( "#loggedashome" ).html(LoggedUser);
 				
+
+			//	 facebookConnectPlugin.getLoginStatus(function (status) {
+			//    console.log("current status: " + JSON.stringify(status));
+			//   });
+
 }  
   
  

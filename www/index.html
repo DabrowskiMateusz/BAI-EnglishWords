@@ -21,8 +21,12 @@
 		<script src="cordova.js"></script>
 		<script src="https://apis.google.com/js/platform.js" async defer></script>
 		<script src="js/chooseWord.js"></script>
+<<<<<<< HEAD
 		<script src="js/achievements.js"></script>
 
+=======
+       <script src="js/notification.js"></script>
+>>>>>>> notification
 		
 	</head>
 	<body onload="init()">
@@ -145,13 +149,72 @@
 	</div>
 	
 	
-	<div data-role="page" id="settings">
-		<div data-role="header" id="header">
+	<div data-role="page" id="settings" class="normal_page" >
+		<div class="second_header">
 			<b> Ustawienia </b> <br> <br>
 				<div id="robotofont">
-					Edytuj opcje!
-			</div>
+				Edytuj ustawienia powiadomień!
+				</div>
 		</div>
+		<br>
+		
+		<h3>Wybierz kategorię słówek:</h3>
+			<select id="selectlistNotification"> 
+			<option>Owoce</option>
+			<option>Zwierzęta</option>
+			<option>Ludzie</option>
+			<option>Świat</option>
+		</select>
+			
+			
+		<h3>Godzina o wyświetlania powiadomień:</h3>
+		<select id="selectedHour"> 
+		<option value="1" >1</option>
+		<option value="2" >2</option>
+		<option value="3" >3</option>
+		<option value="4" >4</option>
+		<option value="5" >5</option>
+		<option value="6" >6</option>
+		<option value="7" selected >7</option>
+		<option value="8" >8</option>
+		<option value="9" >9</option>
+		<option value="10" >10</option>
+		<option value="11" >11</option>
+		<option value="12" >12</option>
+		<option value="13" >13</option>
+		<option value="14" >14</option>
+		<option value="15" >15</option>
+		<option value="16" >16</option>
+		<option value="17" >17</option>
+		<option value="18" >18</option>
+		<option value="19" >19</option>
+		<option value="20" >20</option>
+		<option value="21" >21</option>
+		<option value="22" >22</option>
+		<option value="23" >23</option>
+		<option value="0" >24</option>
+		</select>
+		
+		<h3>Interwał wyświetlania powiadomień (godziny):</h3>
+		<select id="selectedHowOften"> 
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3" >3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+		<option value="6">6</option>
+		<option value="7">7</option>
+		<option value="8">8</option>
+		<option value="9">9</option>
+		<option value="10">10</option>
+		<option value="11">11</option>
+		<option value="12">12</option>
+		<option value="24" selected>24</option>
+		</select>
+
+		<button type="notification" id="notification" onclick="notification()">Ustaw powiadomienie!</button> 
+
+		
 
 	</div>
 	
@@ -204,7 +267,7 @@
 	
 	<div data-role="page" id="grammar" class="normal_page">
 		<div class="second_header">
-			Gramatyka
+			Gramatyka1
 		</div>
 		<div data-role="main" class="ui-content">
 			<h1>Lista tematów: </h1>
