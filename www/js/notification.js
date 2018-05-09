@@ -5,6 +5,7 @@ function onDeviceReady() {
 }
 
 var wordPair = [];
+var imageNotificationUrl = '';
 
 function loadNextWordPairNotification(){
     wordPair = getRandomWordPairNotification();
@@ -29,14 +30,12 @@ function getRandomWordPairNotification(){
     return selectedPair;
 }
 
-var imageNotificationUrl = '';
 
 function getImageNotification(){
 var keyword = wordPair[1];
 
-
     $(document).ready(function(){
-
+		
         $.getJSON("https://api.flickr.com/services/rest/?method=flickr.photos.search&nojsoncallback=1",
         {
 			api_key: "a584691224799fc3262f67f3c66ab074",
@@ -77,14 +76,7 @@ function notification() {
 	var howoften =  (($( "#selectedHowOften" ).val()) * 60);
 	var date = new Date(year, month, day, hours).getTime();
 	var dateNow = new Date().getTime();
-		console.log(year);
-		console.log(month);
-		console.log(day);
-		console.log(date);
-		console.log(hours);
-		console.log(howoften);
-		console.log(dateNow);
-		
+
 			cordova.plugins.notification.local.schedule({
 			id: 1,
 			title: "Słówko Polskie: " + wordPair[0],
