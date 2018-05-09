@@ -51,14 +51,7 @@ function checkValue(){
 	
 	document.getElementById('fourCompletion').value = valueFromFourInput +" "+ status;
 
-	if(valueFromFiveInput===tab3[4]){
-
-		status="Poprawnie!"
-	}else {
-		status="Nie poprawnie!"
-	}
 	
-	document.getElementById('fiveCompletion').value = valueFromFiveInput +" "+ status;
 	
 
 
