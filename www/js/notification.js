@@ -15,7 +15,8 @@ function onDeviceReady() {
 	var month = m;  
 	var day =  today;
 	
-	
+	var now             = new Date().getTime(),
+    _5_sec_from_now = new Date(now + 5*1000);
 	
 function notification() {
 	var hours = ($( "#selectedHour" ).val());
@@ -33,7 +34,7 @@ function notification() {
 		id: 1,
 		title: "Message Title",
 		text: "Message Text",
-		firstAt: dateNow, // firstAt and at properties must be an IETF-compliant RFC 2822 timestamp
+		at: _5_sec_from_now, // firstAt and at properties must be an IETF-compliant RFC 2822 timestamp
 		every: howoften, // this also could be minutes i.e. 25 (int)
 		data: { meetingId:"123#fg8" }
 });
