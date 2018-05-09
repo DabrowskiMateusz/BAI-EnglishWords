@@ -21,7 +21,7 @@ function notification() {
 	var hours = ($( "#selectedHour" ).val());
 	var howoften =  (($( "#selectedHowOften" ).val()) * 60);
 	var date = new Date(year, month, day, hours);
-	var dateNow = new Date();
+	var dateNow = new Date().getTime();
 		console.log(year);
 		console.log(month);
 		console.log(day);
@@ -30,12 +30,12 @@ function notification() {
 		console.log(howoften);
 		console.log(dateNow);
 		cordova.plugins.notification.local.schedule({
-			id: 1,
-			title: "Production Jour fixe",
-			text: "Duration 1h",
-			firstAt: dateNow,
-			every: howoften,
-			data: { meetingId:"123#fg8" }
+		id: 1,
+		title: "Message Title",
+		text: "Message Text",
+		firstAt: dateNow, // firstAt and at properties must be an IETF-compliant RFC 2822 timestamp
+		every: howoften, // this also could be minutes i.e. 25 (int)
+		data: { meetingId:"123#fg8" }
 });
 
 
