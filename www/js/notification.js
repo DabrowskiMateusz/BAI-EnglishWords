@@ -63,6 +63,7 @@ function notificationSet() {
 	var minutes = 1000 * 60;
 	var howoften =  (($( "#selectedHowOften" ).val()) * minutes * 1);
 	
+	
 	var d = new Date();
 	var y = d.getFullYear();
 	var m = d.getMonth();
@@ -73,9 +74,10 @@ function notificationSet() {
 	var hours = ($( "#selectedHour" ).val());
 	// 	var date = new Date(year, month, day, hours).getTime();
 		var date = new Date().getTime();
+		var dateFirst = new Date();
 	
 	
-	for (i = 1; i < howManyNotifications; i++) { 
+	for (i = 0; i < howManyNotifications; i++) { 
 	
 	loadNextWordPairNotification();
 	
@@ -89,11 +91,13 @@ function notificationSet() {
    
 	}
 	
-	cordova.plugins.notification.local.getTriggered(function (notifications) {
-    alert(notifications.length);
-	});
-
-
+	$( "#notificationFeedback" ).html(
+	'Ustawiono ' + howManyNotifications 
+	+ ' powiadomień, pierwsze '  + dateFirst
+	+ ' kolejne co ' + $( "#selectedHowOften" ).val()
+	+ ' godzin '
+	);
+	
 }
 
 // funkcja służy do ustawienia powiadomienia zgodnie z zadanymi wartościami i interwałem
@@ -107,40 +111,31 @@ function notification(date) {
 			attachments: ['imageNotificationUrl'],
 			
 		});
+}
+
+//usuwanie wszystkich powiadomień.
+
+
+function notificationRemove() {
+	
+	for (i = 0; i < notificationId; i++) { 
+	
+			cordova.plugins.notification.local.cancel(notificationId, function () {
+			console.log("notification " + notificationId + " was cancelled");
+			
+			}, scope);
+	
+	}
+	
+	$( "#notificationCancelFeedback" ).html('Wszystkie powiadomienia zostały usunięte');
 
 }
 
-//funcja służy do natychmiastowego wyświetlenia powiadomienia  - na potrzeby testów i prezentacji.
-function notification2() {
-	
-	loadNextWordPairNotification();
-	
-	console.log(wordPair[0] + " " +  wordPair[1]);
-	
-	getImageNotification();
-	
-	var d = new Date();
-	var y = d.getFullYear();
-	var m = d.getMonth();
-	var today = d.getDate();
-	var year = y; 
-	var month = m;  
-	var day =  today; 
-	
-	var hours = ($( "#selectedHour" ).val());
-	var howoften =  (($( "#selectedHowOften" ).val()) * 60);
-	var date = new Date(year, month, day, hours).getTime();
-	var dateNow = new Date().getTime();
 
-			cordova.plugins.notification.local.schedule({
-			id: 1,
-			title: "Słówko Polskie: " + wordPair[0],
-			text: "Tłumaczenie: " + wordPair[1],
-			at: dateNow, // firstAt and at properties must be an IETF-compliant RFC 2822 timestamp
-			every: howoften, // this also could be minutes i.e. 25 (int)
-			icon: imageNotificationUrl,
-		});
-	
 
-}
+
+
+
+
+
 
