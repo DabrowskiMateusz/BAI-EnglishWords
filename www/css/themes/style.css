@@ -1,0 +1,108 @@
+@font-face { font-family: Precious; src: url('../Precious.ttf'); } 
+
+.ui-page { 
+	font-family: 'Lato', sans-serif; 
+	height: 100%;
+	width: 100%; 
+	background:#2b2e31;
+	outline:0;
+}
+.ui-content { 
+	color: black;
+ 	margin-right: 35px;
+    margin-left: 35px;
+}
+
+a{
+	text-decoration: none;
+}
+
+.ui-btn { border: none !important; }
+
+#header{
+	font-weight: normal;
+	border: none !important;
+	padding: 5% 5% 10% 10%;
+	text-shadow:0 0 0; 
+	color: white;
+	background:#2446AF;
+}
+
+.second_header{
+	border: none !important;
+	padding: 1% 1% 1% 1%;
+	text-shadow:0 0 0; 
+	text-align: center;
+	color: black;
+	background:#b9f3a8;
+	font-size: 2em;
+}
+
+#robotofont{
+	font-family: 'Roboto', sans-serif;
+	font-weight: lighter;
+}
+
+#button{
+	height: 5%;
+	margin: 0px;
+	font-weight: normal;
+	padding: 5% 5% 5% 10%;
+	text-shadow:0 0 0; 
+	color: white;
+}
+
+#lineborder{
+	margin-top:20px;
+	height: 1px;
+	background:#FFFFFF;
+}
+
+#frontContent, #backContent{
+	background-image: url('../../img/flashcard.gif');
+	background-repeat: no-repeat;
+	text-align:center;
+	vertical-align: middle;
+	height: 513px;
+	line-height: 240px;
+	width: 313px;
+	display: inline-block;
+	font-size:2em;
+}
+
+.normal_page {
+	color: black;
+	background: rgb(255, 255, 241);
+}
+
+.flashcardText {
+    margin:auto;
+}
+
+.tenses{
+	padding-left: 15px;
+}
+
+
+
+#myProgress {
+	color: white;
+	text-align: center;
+	text-align: center;
+	display: inline
+    width: 100%;
+    background-color: grey;
+	vertical-align: middle;
+}
+
+#myProgress p {
+   display: inline;
+   text-align: center;
+    vertical-align: middle;
+}
+
+#progressBar {
+    width: 1%;
+    height: 30px;
+    background-color: green;
+}
