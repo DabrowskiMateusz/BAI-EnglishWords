@@ -111,7 +111,8 @@ function notification(date) {
 			text: "Tłumaczenie: " + wordPair[1],
 			at: date, // firstAt and at properties must be an IETF-compliant RFC 2822 timestamp
 			attachments: ['imageNotificationUrl'],
-			icon: 'www/img/snd.png',
+			icon: "res://sndwhite.png",
+			smallIcon:"res://sndwhite.png"
 		});
 }
 
