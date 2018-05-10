@@ -59,7 +59,7 @@ function checkValue(){
 	}
 	
 	document.getElementById('fiveCompletion').value = valueFromFiveInput +" "+ status;
-	
+	 
 
 
 
