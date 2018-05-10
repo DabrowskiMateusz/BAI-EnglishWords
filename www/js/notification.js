@@ -58,6 +58,8 @@ var keyword = wordPair[1];
 }
 
 function notificationSet() {
+	var howManyNotifications = ($( "#selectedHowMany" ).val());
+	console.log(howManyNotifications);
 	var minutes = 1000 * 60;
 	var howoften =  (($( "#selectedHowOften" ).val()) * minutes * 1);
 	
@@ -73,7 +75,7 @@ function notificationSet() {
 		var date = new Date().getTime();
 	
 	
-	for (i = 0; i < 13; i++) { 
+	for (i = 1; i < howManyNotifications; i++) { 
 	
 	loadNextWordPairNotification();
 	
@@ -86,6 +88,11 @@ function notificationSet() {
 	date = date + howoften;
    
 	}
+	
+	cordova.plugins.notification.local.getTriggered(function (notifications) {
+    alert(notifications.length);
+	});
+
 
 }
 
