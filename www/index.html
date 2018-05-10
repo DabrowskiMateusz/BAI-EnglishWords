@@ -173,7 +173,7 @@
 				</div>
 		</div>
 		<br>
-		
+		<center>
 		<h3>Wybierz kategorię słówek:</h3>
 			<select id="selectlistNotification"> 
 			<option>Owoce</option>
@@ -228,18 +228,20 @@
 		<option value="24" selected>24</option>
 		</select>
 
+		<div id = "inputCenterContainer">
+		
 		<h3>Łączna ilość wyświetlanych powiadomień:</h3>
 		<input value="5" type="number" id="selectedHowMany" placeholder="12"> 
 		
+		</div>
 		
 		<button type="notification" id="notification" onclick="notificationSet()">Ustaw powiadomienie!</button> 
-		
-		<p id="notificationFeedback">
-		
+	
+		<p id="notificationFeedback"> </p>
 		
 		<button type="notification" id="notification" onclick="notificationRemove()">Usuń wszystkie powiadomienia!</button> 
 		
-		<p id="notificationCancelFeedback">
+		</center>
 	
 	</div>
 	
@@ -292,7 +294,7 @@
 	
 	<div data-role="page" id="grammar" class="normal_page">
 		<div class="second_header">
-			Gramatyka1
+			Gramatyka
 		</div>
 		<div data-role="main" class="ui-content">
 			<h1>Lista tematów: </h1>

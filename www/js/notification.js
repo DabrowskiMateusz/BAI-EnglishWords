@@ -61,7 +61,7 @@ function notificationSet() {
 	var howManyNotifications = ($( "#selectedHowMany" ).val());
 	console.log(howManyNotifications);
 	var minutes = 1000 * 60;
-	var howoften =  (($( "#selectedHowOften" ).val()) * minutes * 1);
+	var howoften =  (($( "#selectedHowOften" ).val()) * minutes * 60);
 	
 	
 	var d = new Date();
@@ -75,6 +75,7 @@ function notificationSet() {
 	// 	var date = new Date(year, month, day, hours).getTime();
 		var date = new Date().getTime();
 		var dateFirst = new Date();
+		console.log(dateFirst);
 	
 	
 	for (i = 0; i < howManyNotifications; i++) { 
@@ -127,7 +128,7 @@ function notificationRemove() {
 	
 	}
 	
-	$( "#notificationCancelFeedback" ).html('Wszystkie powiadomienia zostały usunięte');
+	$( "#notificationFeedback" ).html('Wszystkie powiadomienia zostały usunięte');
 
 }
 

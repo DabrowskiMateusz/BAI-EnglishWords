@@ -106,3 +106,13 @@ a{
     height: 30px;
     background-color: green;
 }
+
+
+#inputCenterContainer input {
+  text-align: center;
+}
+
+
+
+
+
