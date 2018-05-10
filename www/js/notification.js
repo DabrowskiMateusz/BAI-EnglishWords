@@ -6,6 +6,7 @@ function onDeviceReady() {
 
 var wordPair = [];
 var imageNotificationUrl = '';
+var notificationId = 0;
 
 function loadNextWordPairNotification(){
     wordPair = getRandomWordPairNotification();
@@ -56,14 +57,9 @@ var keyword = wordPair[1];
     });
 }
 
-// funkcja służy do ustawienia powiadomienia zgodnie z zadanymi wartościami i interwałem
-function notification() {
-	
-	loadNextWordPairNotification();
-	
-	console.log(wordPair[0] + " " +  wordPair[1]);
-	
-	getImageNotification();
+function notificationSet() {
+	var minutes = 1000 * 60;
+	var howoften =  (($( "#selectedHowOften" ).val()) * minutes * 1);
 	
 	var d = new Date();
 	var y = d.getFullYear();
@@ -72,20 +68,39 @@ function notification() {
 	var year = y; 
 	var month = m;  
 	var day =  today; 
-	
 	var hours = ($( "#selectedHour" ).val());
-	var howoften =  (($( "#selectedHowOften" ).val()) * 60);
-	var date = new Date(year, month, day, hours).getTime();
-	var dateNow = new Date().getTime();
+	// 	var date = new Date(year, month, day, hours).getTime();
+		var date = new Date().getTime();
+	
+	
+	for (i = 0; i < 13; i++) { 
+	
+	loadNextWordPairNotification();
+	
+	console.log(wordPair[0] + " " +  wordPair[1]);
+	
+	getImageNotification();
+	
+	notification(date);
+	notificationId++;
+	date = date + howoften;
+   
+	}
 
-			cordova.plugins.notification.local.schedule({
-			id: 1,
+}
+
+// funkcja służy do ustawienia powiadomienia zgodnie z zadanymi wartościami i interwałem
+function notification() {
+	
+		cordova.plugins.notification.local.schedule({
+			id: notificationId,
 			title: "Słówko Polskie: " + wordPair[0],
 			text: "Tłumaczenie: " + wordPair[1],
 			at: date, // firstAt and at properties must be an IETF-compliant RFC 2822 timestamp
-			every: howoften, // this also could be minutes i.e. 25 (int)
 			attachments: ['imageNotificationUrl'],
+			
 		});
+
 }
 
 //funcja służy do natychmiastowego wyświetlenia powiadomienia  - na potrzeby testów i prezentacji.
