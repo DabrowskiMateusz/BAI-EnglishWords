@@ -90,7 +90,7 @@ function notificationSet() {
 }
 
 // funkcja służy do ustawienia powiadomienia zgodnie z zadanymi wartościami i interwałem
-function notification() {
+function notification(date) {
 	
 		cordova.plugins.notification.local.schedule({
 			id: notificationId,
