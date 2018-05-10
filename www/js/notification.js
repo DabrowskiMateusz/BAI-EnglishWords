@@ -72,9 +72,10 @@ function notificationSet() {
 	var month = m;  
 	var day =  today; 
 	var hours = ($( "#selectedHour" ).val());
-	// 	var date = new Date(year, month, day, hours).getTime();
-		var date = new Date().getTime();
-		var dateFirst = new Date();
+		var date = new Date(year, month, day, hours).getTime();
+		//var date = new Date().getTime();
+		var dateFirst = new Date(year, month, day, hours).getTime();
+		//var dateFirst = new Date();
 		console.log(dateFirst);
 	
 	
@@ -124,7 +125,7 @@ function notificationRemove() {
 			cordova.plugins.notification.local.cancel(notificationId, function () {
 			console.log("notification " + notificationId + " was cancelled");
 			
-			}, scope);
+			});
 	
 	}
 	
