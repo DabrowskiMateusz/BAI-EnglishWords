@@ -21,7 +21,7 @@ function checkValue(){
 		status="Nie poprawnie!"
 	}
 	
-	document.getElementById('firstCompletion').value = valueFromFirstInput +" "+ status;
+	document.getElementById('firstCompletion').value = valueFromFirstInput +"      "+ status;
 
 
 	if(valueFromSecondInput===tab3[1]){
@@ -31,7 +31,7 @@ function checkValue(){
 		status="Nie poprawnie!"
 	}
 	
-	document.getElementById('secondCompletion').value = valueFromSecondInput +" "+ status;
+	document.getElementById('secondCompletion').value = valueFromSecondInput +"      "+ status;
 
 	if(valueFromThirdInput===tab3[2]){
 
@@ -40,7 +40,7 @@ function checkValue(){
 		status="Nie poprawnie!"
 	}
 	
-	document.getElementById('thirdCompletion').value = valueFromThirdInput +" "+ status;
+	document.getElementById('thirdCompletion').value = valueFromThirdInput +"      "+ status;
 
 	if(valueFromFourInput===tab3[3]){
 
@@ -49,7 +49,7 @@ function checkValue(){
 		status="Nie poprawnie!"
 	}
 	
-	document.getElementById('fourCompletion').value = valueFromFourInput +" "+ status;
+	document.getElementById('fourCompletion').value = valueFromFourInput +"      "+ status;
 
 	if(valueFromFiveInput===tab3[4]){
 
@@ -58,7 +58,7 @@ function checkValue(){
 		status="Nie poprawnie!"
 	}
 	
-	document.getElementById('fiveCompletion').value = valueFromFiveInput +" "+ status;
+	document.getElementById('fiveCompletion').value = valueFromFiveInput +"      "+ status;
 	 
 
 
