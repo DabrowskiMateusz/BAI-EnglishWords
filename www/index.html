@@ -21,12 +21,10 @@
 		<script src="cordova.js"></script>
 		<script src="https://apis.google.com/js/platform.js" async defer></script>
 		<script src="js/chooseWord.js"></script>
-<<<<<<< HEAD
+		
 		<script src="js/achievements.js"></script>
-
-=======
        <script src="js/notification.js"></script>
->>>>>>> notification
+
 		
 	</head>
 	<body onload="init()">
@@ -220,17 +218,17 @@
 	</div>
 	
 	
-	<div data-role="page" id="logowanie" >
-		<div data-role="header" id="header">
+	<div data-role="page" id="logowanie" class="normal_page" >
+	
+	<div class="second_header">
 			<b> Zaloguj się </b> <br> <br>
 				<div id="robotofont">
-					Możesz również założyć konto używając FB, lub GOOGLE
-				</div>	
-				<div id="robotofont">
-					Zalogowany jako <p id="loggedas"> </p> <br>
+				Zalogowany jako <a id="loggedas"> </a> <br>
 					 <p id="feedback">
-				</div>	
+				</div>
 		</div>
+		
+	
 		<div data-role="main" class="ui-content" >		
 			<div id="registerForm">
 				<input type="text" id="userEmail" placeholder="Email"> 

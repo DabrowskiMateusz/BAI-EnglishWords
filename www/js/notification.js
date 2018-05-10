@@ -84,7 +84,7 @@ function notification() {
 			text: "Tłumaczenie: " + wordPair[1],
 			at: date, // firstAt and at properties must be an IETF-compliant RFC 2822 timestamp
 			every: howoften, // this also could be minutes i.e. 25 (int)
-			icon: imageNotificationUrl,
+			attachments: ['imageNotificationUrl'],
 		});
 }
 
