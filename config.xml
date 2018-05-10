@@ -2,24 +2,30 @@
     <widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
 		id          = "com.slowkonadzis.android"
-        version     = "1.0.0" >
+        version     = "1.0.0" 
+		>
+		<icon src="www/img/snd.png" />
+		<gap:splash src="www/img/snd.png" />
+
     <name>Słówko na dziś</name>
     <description>Aplikacja do nauki języka angielskiego</description>
     <author href="https://github.com/DabrowskiMateusz/BAI-EnglishWords" email="slawek@grawerznak.pl">
 	</author>
 	<engine name="android" />
-		S. Klejdysz
-		<plugin name="cordova-plugin-whitelist"/>
-		<access origin="*" />
-		<allow-navigation href="*" />
-		<allow-intent href="*" />
+	
+		S. Klejdysz M.Dąbrowski E.Kiper D.Kłeczek
+		
+	<plugin name="cordova-plugin-whitelist"/>
+	<access origin="*" />
+	<allow-navigation href="*" />
+	<allow-intent href="*" />
 
 	<meta http-equiv="Content-Security-Policy" content="
     default-src *; 
     style-src * 'unsafe-inline'; 
     script-src * 'unsafe-inline'; 
     media-src *; img-src * data:; 
-" />
+	" />
 		
 		
 	<platform name="android">

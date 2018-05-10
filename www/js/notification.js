@@ -74,7 +74,7 @@ function notificationSet() {
 	var hours = ($( "#selectedHour" ).val());
 		var date = new Date(year, month, day, hours).getTime();
 		//var date = new Date().getTime();
-		var dateFirst = new Date(year, month, day, hours).getTime();
+		var dateFirst = new Date(year, month, day, hours);
 		//var dateFirst = new Date();
 		console.log(dateFirst);
 	
@@ -111,7 +111,7 @@ function notification(date) {
 			text: "Tłumaczenie: " + wordPair[1],
 			at: date, // firstAt and at properties must be an IETF-compliant RFC 2822 timestamp
 			attachments: ['imageNotificationUrl'],
-			
+			icon: 'www/img/snd.png',
 		});
 }
 
