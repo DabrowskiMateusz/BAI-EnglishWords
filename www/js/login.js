@@ -181,7 +181,6 @@ function loginFirebaseStatus() {
 				
 		  } else {
 			$( "#loggedas" ).html(LoggedUser);
-			window.location.href = "#logowanie";
 		  }
 			});
 			
@@ -209,7 +208,16 @@ function signOut() {
     });
 }
 
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}	
 
+async function isUserLogged() {
+	await sleep(2000);
+	if (LoggedUser == 'Niezalogowany') {
+		window.location.href = "#logowanie";
+	}
+}
 
 function isUserEqual(googleUser, firebaseUser) {
   if (firebaseUser) {

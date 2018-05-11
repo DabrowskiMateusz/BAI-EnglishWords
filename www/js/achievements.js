@@ -1,11 +1,11 @@
 
 function loadAnswers() {
-	//var user = firebase.auth().currentUser;
-	var user = 'grawerjkgmailcom';
+	var user = firebase.auth().currentUser;
+	//var user = 'grawerjkgmailcom';
 	if(user == null){
 		return;
 	}
-	var path = createPath(['grawerjkgmailcom', "results", "choosing_words"]);
+	var path = createPath(['user', "results", "choosing_words"]);
 	appendAnswers(path);
 	
 }
