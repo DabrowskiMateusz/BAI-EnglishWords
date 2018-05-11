@@ -29,6 +29,7 @@
 		
 		
 	<platform name="android">
+	<framework src="com.android.support:support-v4:26.+" value="gradle" />
 	<preference name="fullscreen" value="true" />
 	<resource-file src="merges/android/sndwhite.png" target="res/drawable/sndwhite.png"/>
 	</platform>
@@ -51,7 +52,7 @@
 	<plugin name="cordova-plugin-browsertab" />
 	<plugin name="cordova-plugin-inappbrowser" />
     <plugin name="cordova-plugin-dialogs" />
-    <plugin name="cordova-plugin-local-notification" source="npm" />
+    <plugin name="cordova-plugin-local-notifications" source="git" />
 
 	
 	<universal-links>
