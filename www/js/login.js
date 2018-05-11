@@ -152,7 +152,7 @@ function loginFirebase() {
 			});
 		
 		facebookConnectPlugin.logout(function(){
-                        console.log("LOGOUT SUCCESS");
+                        console.log("FB LOGOUT SUCCESS");
 						$( "#loggedas" ).html('Niezalogowany');
 						$( "#loggedashome" ).html('Niezalogowanyer');
                     },function(){
@@ -219,6 +219,7 @@ $(window).on('hashchange', function() {
 
 
 async function isUserLogged() {
+	loginFirebaseStatus();
 	await sleep(2000);
 	if (LoggedUser == 'Niezalogowany') {
 		window.location.href = "#logowanie";
