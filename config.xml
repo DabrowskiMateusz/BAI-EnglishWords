@@ -29,8 +29,7 @@
 		
 		
 	<platform name="android">
-	<preference name="fullscreen" value="false" />
-	<activity android:theme="@android:style/Theme.NoTitleBar.Fullscreen" ></activity>
+	<preference name="fullscreen" value="true" />
 	<resource-file src="merges/android/sndwhite.png" target="res/drawable/sndwhite.png"/>
 	</platform>
 		
