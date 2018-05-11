@@ -143,7 +143,10 @@ function loginFirebase() {
 		$('#logout').click(function() {
 
 			firebase.auth().signOut().then(function() {
-			  // Sign-out successful.
+				
+			  LoggedUser = "Niezalogowany";
+			  $( "#loggedas" ).html(LoggedUser);
+			  $( "#loggedashome" ).html(LoggedUser);
 			}, function(error) {
 			  // An error happened.
 			});
@@ -151,6 +154,7 @@ function loginFirebase() {
 		facebookConnectPlugin.logout(function(){
                         console.log("LOGOUT SUCCESS");
 						$( "#loggedas" ).html('Niezalogowany');
+						$( "#loggedashome" ).html('Niezalogowanyer');
                     },function(){
                         console.log("LOGOUT FAIL");
                     }); 
@@ -177,6 +181,7 @@ function loginFirebaseStatus() {
 				
 		  } else {
 			$( "#loggedas" ).html(LoggedUser);
+			window.location.href = "#logowanie";
 		  }
 			});
 			
