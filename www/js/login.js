@@ -212,6 +212,11 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }	
 
+$(window).on('hashchange', function() {
+  isUserLogged();
+});
+
+
 async function isUserLogged() {
 	await sleep(2000);
 	if (LoggedUser == 'Niezalogowany') {
