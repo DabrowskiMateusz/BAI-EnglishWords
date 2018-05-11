@@ -30,11 +30,8 @@
 		
 	<platform name="android">
 	<preference name="phonegap-version" value="cli-6.3.0" />
-	<framework src="com.android.support:support-v4:26.+" value="gradle" />
-	<preference name="fullscreen" value="true" />
-	<preference name="android-minSdkVersion"      value="23" />
-	<preference name="android-targetSdkVersion"   value="26" />
-	<preference name="android-compileSdkVersion" value="26" />
+
+		<preference name="fullscreen" value="true" />
 	<resource-file src="merges/android/sndwhite.png" target="res/drawable/sndwhite.png"/>
 	</platform>
 		
