@@ -33,3 +33,8 @@ https://trello.com/bogateaplikacjeinternetowe
 Wykaz wykonanych prac oraz czas ich realizacji znajduje się na witrynie trello pod adresem 
 
 https://trello.com/bogateaplikacjeinternetowe
+
+# Prototyp aplikacji
+
+Prototyp aplikacji jest dostępny na platformie MarvelApp, pod adresem:
+https://marvelapp.com/154899f6
