@@ -28,3 +28,8 @@ https://trello.com/bogateaplikacjeinternetowe
 
 
 
+# Raport wykonanych prac
+
+Wykaz wykonanych prac oraz czas ich realizacji znajduje się na witrynie trello pod adresem 
+
+https://trello.com/bogateaplikacjeinternetowe
