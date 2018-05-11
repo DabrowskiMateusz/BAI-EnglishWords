@@ -214,6 +214,7 @@ function sleep(ms) {
 
 $(window).on('hashchange', function() {
   isUserLogged();
+  loadAnswers();
 });
 
 

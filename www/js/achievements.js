@@ -8,8 +8,8 @@ async function loadAnswers() {
 	await sleep(2000);
 	var user = [normalizeEmail(LoggedUser)];
 	//var user = 'grawerjkgmailcom';
-	if(user == null){
-		console.log(user);
+	if(user == 'Niezalogowany'){
+		console.log(LoggedUser);
 		return;
 	}
 	console.log(user);
