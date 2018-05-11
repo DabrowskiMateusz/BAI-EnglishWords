@@ -5,7 +5,9 @@ function loadAnswers() {
 	if(user == null){
 		return;
 	}
-	var path = createPath(['user', "results", "choosing_words"]);
+	console.log(user);
+	var path = createPath([user, "results", "choosing_words"]);
+	console.log(path);
 	appendAnswers(path);
 	
 }
