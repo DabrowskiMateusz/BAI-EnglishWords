@@ -236,6 +236,7 @@ function isUserEqual(googleUser, firebaseUser) {
 
 
 function init() {
+	loadAnswers();
 	loginFirebase();
 	loginFirebaseStatus();
 }

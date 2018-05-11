@@ -1,8 +1,15 @@
 
-function loadAnswers() {
-	var user = firebase.auth().currentUser;
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+
+async function loadAnswers() {
+	await sleep(2000);
+	var user = [normalizeEmail(LoggedUser)];
 	//var user = 'grawerjkgmailcom';
 	if(user == null){
+		console.log(user);
 		return;
 	}
 	console.log(user);
