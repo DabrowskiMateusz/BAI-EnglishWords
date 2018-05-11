@@ -105,7 +105,7 @@ function notificationSet() {
 // funkcja służy do ustawienia powiadomienia zgodnie z zadanymi wartościami i interwałem
 function notification(date) {
 	
-		cordova.plugins.notifications.local.schedule({
+		cordova.plugins.notification.local.schedule({
 			id: notificationId,
 			title: "Słówko Polskie: " + wordPair[0],
 			text: "Tłumaczenie: " + wordPair[1],
@@ -123,7 +123,7 @@ function notificationRemove() {
 	
 	for (i = 0; i < notificationId; i++) { 
 	
-			cordova.plugins.notifications.local.cancel(notificationId, function () {
+			cordova.plugins.notification.local.cancel(notificationId, function () {
 			console.log("notification " + notificationId + " was cancelled");
 			
 			});
