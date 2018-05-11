@@ -29,8 +29,10 @@
 		
 		
 	<platform name="android">
-	<preference name="phonegap-version" value="cli-6.3.1" />
-
+	<framework src="com.android.support:support-v4:26.+" value="gradle" />
+	<preference name="android-minSdkVersion"      value="23" />
+	<preference name="android-targetSdkVersion"   value="26" />
+	<preference name="android-compileSdkVersion" value="26" />
 		<preference name="fullscreen" value="true" />
 	<resource-file src="merges/android/sndwhite.png" target="res/drawable/sndwhite.png"/>
 	</platform>
@@ -53,8 +55,7 @@
 	<plugin name="cordova-plugin-browsertab" />
 	<plugin name="cordova-plugin-inappbrowser" />
     <plugin name="cordova-plugin-dialogs" /> 
-
-    <plugin name="cordova-plugin-local-notification" source="npm" />
+    <plugin name="de.appplant.cordova.plugin.local-notification" source="npm" />
 	
 	<universal-links>
     <host name="h6x6m.app.goo.gl" scheme="https" />
