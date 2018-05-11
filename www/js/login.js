@@ -156,7 +156,7 @@ function loginFirebase() {
 						$( "#loggedas" ).html('Niezalogowany');
 						$( "#loggedashome" ).html('Niezalogowanyer');
                     },function(){
-                        console.log("LOGOUT FAIL");
+                        console.log("FB LOGOUT FAIL");
                     }); 
 		});	
 }  
