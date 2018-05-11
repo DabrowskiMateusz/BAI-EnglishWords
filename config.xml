@@ -29,6 +29,7 @@
 		
 		
 	<platform name="android">
+	<preference name="phonegap-version" value="cli-6.3.0" />
 	<framework src="com.android.support:support-v4:26.+" value="gradle" />
 	<preference name="fullscreen" value="true" />
 	<preference name="android-minSdkVersion"      value="23" />
