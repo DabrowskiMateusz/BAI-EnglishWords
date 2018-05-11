@@ -110,7 +110,7 @@ function notification(date) {
 			title: "Słówko Polskie: " + wordPair[0],
 			text: "Tłumaczenie: " + wordPair[1],
 			at: date, // firstAt and at properties must be an IETF-compliant RFC 2822 timestamp
-			attachments: ['imageNotificationUrl'],
+			attachments: [imageNotificationUrl],
 			icon: "res://sndwhite.png",
 			smallIcon:"res://sndwhite.png"
 		});
