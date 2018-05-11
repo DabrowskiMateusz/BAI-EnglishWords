@@ -97,8 +97,9 @@ function notificationRemove() {
 	
 	for (i = 0; i < notificationId; i++) { 
 	
+	console.log("notification " + i + "was cancelled");
+	
 			cordova.plugins.notification.local.cancel(i, function () {
-			console.log("notification " + i + "was cancelled");
 			
 			});
 	

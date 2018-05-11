@@ -71,23 +71,23 @@ function loginFirebase() {
         function (obj) {
 
 		console.log(obj);
-            document.querySelector("#feedback").innerHTML = "Hello, " + obj.displayName + ", " + obj.email;
+             console.log("Hello, " + obj.displayName + ", " + obj.email);
             if (!firebase.auth().currentUser) {
-                document.querySelector("#feedback").innerHTML ='signing firebase';
+               console.log('signing firebase');
 					console.log(obj.idToken);
                 firebase.auth().signInWithCredential(firebase.auth.GoogleAuthProvider.credential(obj.idToken))
                 .then((success) => {
                     console.log("success: " + JSON.stringify(success)); // to long json to put it in #feedback
                 })
                 .catch((error) => {
-                        document.querySelector("#feedback").innerHTML = "error0: " + JSON.stringify(error);
+                        console.log("error0: " + JSON.stringify(error));
                       });
             }else{
-                document.querySelector("#feedback").innerHTML ='error1: already sigend in firebase';
+                console.log('error1: already sigend in firebase');
             }
         },
         function (msg) {
-          document.querySelector("#feedback").innerHTML = "error2: " + msg;
+          console.log("error2: " + msg);
         }
     );	
 	
