@@ -52,7 +52,7 @@
 	<plugin name="cordova-plugin-browsertab" />
 	<plugin name="cordova-plugin-inappbrowser" />
     <plugin name="cordova-plugin-dialogs" />
-    <plugin name="cordova-plugin-local-notifications" source="git" />
+    <plugin name="https://github.com/katzer/cordova-plugin-local-notifications" source="git" />
 
 	
 	<universal-links>
