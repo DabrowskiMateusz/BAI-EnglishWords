@@ -1,8 +1,4 @@
-document.addEventListener("deviceready", onDeviceReady, false);
-function onDeviceReady() {
-	
-	
-}
+
 
 var wordPair = [];
 var notificationId = 0;
