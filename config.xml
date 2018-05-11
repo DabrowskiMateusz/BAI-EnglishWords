@@ -51,7 +51,8 @@
 	<plugin name="cordova-plugin-browsertab" />
 	<plugin name="cordova-plugin-inappbrowser" />
     <plugin name="cordova-plugin-dialogs" />
-    <plugin name="de.appplant.cordova.plugin.local-notification" source="npm" />
+    <plugin name="cordova.plugin.local-notification" source="npm" />
+	
 
 	
 	<universal-links>
